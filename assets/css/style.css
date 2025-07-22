@@ -1,0 +1,610 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f5f5f5;
+}
+
+/* --- Styles pour le Header (En-tête) --- */
+header {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 5px solid #007bff;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    height: 70px;
+    margin-right: 15px;
+}
+
+header h1 {
+    color: #FFD700;
+    margin: 0;
+    font-size: 2.2em;
+    white-space: nowrap;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+}
+
+/* --- Styles pour le corps principal du site --- */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+/* AGENDA */
+.agenda-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background: #28a745;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background: #218838;
+}
+
+/* COACHING PAGE */
+.coaching-section {
+    background: white;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.coaching-section h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.coaching-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.coaching-section p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.coaching-section .btn {
+    background: #28a745;
+}
+
+.coaching-section .btn:hover {
+    background: #218838;
+}
+
+.apropos-content {
+    max-width: 800px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    line-height: 1.7;
+    color: #444;
+}
+
+.apropos-content h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.apropos-content ul {
+    list-style: disc inside;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.apropos-content ul li {
+    margin-bottom: 10px;
+}
+
+.apropos-content ul li h3 {
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.apropos-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+
+/* page contact */
+.contact-form-section {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.contact-form-section h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button[type="submit"],
+.contact-form .secondary-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.contact-form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.contact-form .secondary-button {
+    background-color: #6c757d;
+    color: white;
+}
+
+.contact-form .secondary-button:hover {
+    background-color: #5a6268;
+}
+
+/* AUTHENTICATION / CONNECTION / INSCRIPTION PAGE */
+main.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 150px);
+    background: #e0e7ff;
+}
+
+.auth-container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    margin: 50px auto;
+}
+
+.auth-intro {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.profile-placeholder {
+    width: 120px;
+    height: 120px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    margin: 0 auto 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.profile-placeholder img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Ces styles s'appliquent aux inputs des formulaires d'auth/inscription */
+.auth-container input[type="email"],
+.auth-container input[type="password"],
+.auth-container input[type="text"] { /* Ajout de type="text" pour les champs prénom/nom */
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+    font-size: 1.1em;
+    outline: none;
+}
+
+.auth-container input[type="email"]:focus,
+.auth-container input[type="password"]:focus,
+.auth-container input[type="text"]:focus {
+    border-color: #007bff;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    font-size: 0.9em;
+}
+
+.form-options label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    color: #555;
+}
+
+.form-options input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+.forgot-password {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.btn-login {
+    background: #007bff;
+    color: white; /* Assurer que le texte du bouton est blanc */
+    border: none; /* Assurer qu'il n'y a pas de bordure par défaut */
+    padding: 12px 20px; /* Un padding standard pour les boutons */
+    border-radius: 5px; /* Coins légèrement arrondis */
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s ease;
+    width: 100%; /* S'étend sur toute la largeur de son conteneur */
+    box-sizing: border-box; /* Inclure padding et border dans la largeur */
+    margin-bottom: 15px;
+}
+
+.btn-login:hover {
+    background: #0056b3;
+}
+
+.btn-register {
+    background: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    display: block; /* S'assure qu'il prend la largeur complète */
+    text-decoration: none; /* Pour les cas où il est un <a> */
+    line-height: normal; /* Normalise la hauteur de ligne pour les <a> qui ressemblent à des boutons */
+}
+
+.btn-register:hover {
+    background: #e0e0e0;
+}
+
+
+/* --- Styles pour le Footer (Pied de page) --- */
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 30px 20px;
+    font-size: 0.9em;
+    border-top: 5px solid #007bff;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto 20px auto;
+    text-align: center;
+}
+
+.footer-block {
+    flex: 1;
+    min-width: 280px;
+    margin: 15px;
+    padding: 10px;
+}
+
+.footer-logo-section {
+    flex-basis: 150px;
+    min-width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-logo {
+    height: 100px;
+    display: block;
+}
+
+.footer-info-section {
+    flex-grow: 2;
+    text-align: center;
+}
+
+.footer-info-section p {
+    margin-bottom: 8px;
+    color: #ccc;
+    line-height: 1.5;
+}
+
+.footer-info-section .tagline {
+    color: #FFD700;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.footer-social-section {
+    flex-basis: 150px;
+    min-width: 150px;
+    text-align: center;
+}
+
+.footer-social-section p {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.footer-social-section a {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.footer-social-section img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.footer-social-section img:hover {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+    color: #888;
+    text-align: center;
+}
+
+.footer-bottom p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom p a:hover {
+    color: #007bff;
+}
+
+/* Media Queries pour le responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-block {
+        min-width: 90%;
+        margin-bottom: 20px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+    header nav ul {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+    header nav ul li {
+        width: calc(50% - 10px);
+        text-align: center;
+    }
+    header nav ul li a {
+        display: block;
+        padding: 5px 0;
+    }
+
+    main {
+        padding: 20px 10px;
+    }
+
+    .agenda-container,
+    .auth-container,
+    .coaching-section,
+    .apropos-content,
+    .contact-form-section { /* Ajout de contact-form-section ici */
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .auth-container input {
+        width: calc(100% - 20px);
+    }
+
+    .form-options {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    footer {
+        padding: 20px 10px;
+    }
+    footer img {
+        height: 80px;
+    }
+}
+
+/* Styles pour les messages d'erreur et de succès */
+.error-message {
+    color: red;
+    background-color: #ffe6e6;
+    border: 1px solid red;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.success-message {
+    color: green;
+    background-color: #e6ffe6;
+    border: 1px solid green;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+}

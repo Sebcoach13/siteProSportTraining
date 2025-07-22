@@ -1,0 +1,30 @@
+# Ignorer les dossiers de dépendances de Node.js (s'il y en a)
+node_modules/
+front-end/agenda-app/node_modules/
+front-end/agenda-app/dist/
+.env
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignorer les fichiers de cache PHP ou de frameworks (ex: Laravel, Symfony si utilisés)
+vendor/
+storage/*.key
+public/hot
+.phpunit.result.cache
+.idea/
+.vscode/
+
+# Ignorer les fichiers de logs (comme votre php_errors.log)
+*.log
+logs/
+tmp/
+
+# Fichiers de configuration spécifiques à Laragon ou autres outils locaux
+laragon.conf
+*.local
+
+# Fichiers de cache générés par votre IDE
+*.iml
+.DS_Store
