@@ -1,5 +1,5 @@
 <main>
-    <img src="assets/img/boxe.png" alt="Photo accueil">
+    <img src="/siteProSportTraining/assets/img/boxe.png" alt="Photo accueil">
 
     <h2>🎯 Coaching sportif personnalisé pour des résultats concrets</h2>
     <p>Retrouvez la forme, gagnez en énergie ou atteignez vos objectifs physiques grâce à un accompagnement 100 % sur mesure.
@@ -29,7 +29,6 @@
     <h2>📞 Envie de commencer ?</h2>
     <p>Prenez rendez-vous pour un premier échange gratuit. Nous définirons ensemble vos objectifs, votre emploi du temps, et la meilleure manière d’y arriver.</p>
     <p>
-        <a href="agenda.php" class="btn">Réserver une séance</a>
-        <a href="contact.php" class="btn">Me contacter</a>
+        <a href="/siteProSportTraining/index.php?page=contact" class="btn">Me contacter</a>
     </p>
 </main>

@@ -19,5 +19,5 @@
 
     <img src="assets/img/photo.png" alt="Photo du coach Pro Sport Training">
 
-    <a href="index.php?page=contact" class="btn">Me contacter</a>
+    <a href="/siteProSportTraining/index.php?page=contact" class="btn">Me contacter</a>
 </main>

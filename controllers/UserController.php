@@ -12,8 +12,9 @@ class UserController {
 
     public function login() {
         $error = '';
-        // Ajoutez cette partie pour gérer le message de succès après une inscription réussie
         $success = '';
+
+        // Récupérer le message de succès de l'inscription si présent dans l'URL
         if (isset($_GET['registration_success']) && $_GET['registration_success'] === 'true') {
             $success = "Inscription réussie ! Vous pouvez maintenant vous connecter.";
         }
@@ -25,36 +26,47 @@ class UserController {
             if (empty($email) || empty($password)) {
                 $error = "Veuillez remplir tous les champs.";
             } else {
+                // L'appel à getUserByEmail va maintenant exécuter les 'die()' de débogage de UserModel.php
                 $user = $this->userModel->getUserByEmail($email);
 
+                // Une fois que les tests de UserModel sont passés et que vous avez supprimé les 'die()' là-bas,
+                // le code ci-dessous sera exécuté pour la vérification du mot de passe et la connexion.
                 if ($user && password_verify($password, $user['password'])) {
                     // Connexion réussie
-                    session_start(); // Assurez-vous que la session est démarrée
+                    // NE PAS appeler session_start() ici, il est déjà appelé dans index.php
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['user_email'] = $user['email'];
+                    $_SESSION['user_first_name'] = $user['firstname'];
+                    $_SESSION['user_last_name'] = $user['lastname'];
                     $_SESSION['user_role'] = $user['role'];
 
                     // Gérer "Se souvenir de moi"
                     if (isset($_POST['remember_me'])) {
-                        // Générer un token sécurisé
                         $token = bin2hex(random_bytes(32));
-                        // Stocker le token haché dans la base de données (si votre UserModel le supporte)
-                        // Si UserModel::setRememberMeToken n'existe pas, il faudra l'ajouter
-                        $this->userModel->setRememberMeToken($user['id'], $token); // Cette méthode doit être implémentée dans UserModel
-
-                        // Définir un cookie pour 30 jours (86400 secondes * 30 jours)
-                        setcookie('remember_me_token', $token, time() + (86400 * 30), "/");
+                        $this->userModel->updateRememberToken($user['id'], $token); 
+                        // secure et httponly pour une meilleure sécurité du cookie
+                        setcookie('remember_me_token', $token, time() + (86400 * 30), "/", "", false, true); 
+                    } else {
+                        $this->userModel->updateRememberToken($user['id'], null);
+                        setcookie('remember_me_token', '', time() - 3600, '/');
                     }
 
-                    header('Location: index.php?page=accueil'); // Rediriger l'utilisateur vers la page d'accueil
+                    if (isset($_SESSION['redirect_after_login'])) {
+                        $redirectPage = $_SESSION['redirect_after_login'];
+                        unset($_SESSION['redirect_after_login']);
+                        header('Location: /siteProSportTraining/index.php?page=' . $redirectPage . '&success=Connexion réussie !');
+                    } else {
+                        header('Location: /siteProSportTraining/index.php?page=accueil&success=Connexion réussie !');
+                    }
                     exit();
                 } else {
+                    // Ce message s'affichera si l'utilisateur n'est pas trouvé OU si le mot de passe est incorrect
                     $error = "Email ou mot de passe incorrect.";
                 }
             }
         }
 
-        require_once 'views/connection.php';
+        require_once __DIR__ . '/../views/connection.php';
     }
 
     public function register() {
@@ -68,7 +80,9 @@ class UserController {
             $password = $_POST['password'] ?? '';
             $confirmPassword = $_POST['confirm_password'] ?? '';
 
-            if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            if (empty($firstname) || empty($lastname)) {
+                $error = "Veuillez remplir tous les champs (nom et prénom).";
+            } elseif (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $error = "Veuillez entrer une adresse email valide.";
             } elseif ($this->userModel->emailExists($email)) {
                 $error = "Cette adresse email est déjà utilisée.";
@@ -82,8 +96,7 @@ class UserController {
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
                 if ($this->userModel->registerUser($firstname, $lastname, $email, $hashedPassword, 'client')) {
-                    $success = "Inscription réussie ! Vous pouvez maintenant vous connecter.";
-                    header('Location: index.php?page=connection&registration_success=true');
+                    header('Location: /siteProSportTraining/index.php?page=connection&registration_success=true');
                     exit();
                 } else {
                     $error = "Une erreur est survenue lors de l'inscription. Veuillez réessayer.";
@@ -91,15 +104,15 @@ class UserController {
             }
         }
 
-        require_once 'views/inscription.php';
+        require_once __DIR__ . '/../views/inscription.php';
     }
 
     public function logout() {
-        session_start(); // Assurez-vous que la session est démarrée avant de la manipuler
         session_unset();
         session_destroy();
         setcookie('remember_me_token', '', time() - 3600, '/');
-        header('Location: index.php?page=accueil');
+        header('Location: /siteProSportTraining/index.php?page=accueil');
         exit();
     }
 }
+?>

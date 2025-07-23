@@ -1,7 +1,12 @@
-<main class="auth-page"> <section class="auth-container"> <h2>Inscription</h2>
+<?php
+require_once __DIR__ . '/header.php';
+?>
+
+<main class="auth-page">
+    <section class="auth-container">
+        <h2>Inscription</h2>
 
         <?php
-        // Afficher les messages d'erreur ou de succès avec les noms de variables du contrôleur
         if (isset($error) && !empty($error)) {
             echo '<p class="error-message">' . htmlspecialchars($error) . '</p>';
         }
@@ -10,13 +15,15 @@
         }
         ?>
 
-        <form action="index.php?page=inscription" method="POST">
+        <form action="/siteProSportTraining/controllers/AuthController.php" method="POST">
             <div class="form-group">
-                <label for="firstname">Prénom (Optionnel) :</label> <input type="text" id="firstname" name="firstname" value="<?php echo htmlspecialchars($_POST['firstname'] ?? ''); ?>">
+                <label for="firstname">Prénom (Optionnel) :</label>
+                <input type="text" id="firstname" name="firstname" value="<?php echo htmlspecialchars($_POST['firstname'] ?? ''); ?>">
             </div>
 
             <div class="form-group">
-                <label for="lastname">Nom (Optionnel) :</label> <input type="text" id="lastname" name="lastname" value="<?php echo htmlspecialchars($_POST['lastname'] ?? ''); ?>">
+                <label for="lastname">Nom (Optionnel) :</label>
+                <input type="text" id="lastname" name="lastname" value="<?php echo htmlspecialchars($_POST['lastname'] ?? ''); ?>">
             </div>
 
             <div class="form-group">
@@ -36,6 +43,10 @@
 
             <button type="submit" name="submit_register" class="btn btn-login">S'inscrire</button>
         </form>
-        <p>Déjà un compte ? <a href="index.php?page=connection">Connectez-vous ici</a>.</p>
+        <p>Déjà un compte ? <a href="/siteProSportTraining/views/connection.php">Connectez-vous ici</a>.</p>
     </section>
 </main>
+
+<?php
+require_once __DIR__ . '/footer.php';
+?>

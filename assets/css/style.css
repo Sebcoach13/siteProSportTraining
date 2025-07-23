@@ -5,31 +5,57 @@ body {
 }
 
 /* --- Styles pour le Header (En-tête) --- */
-header {
+.header-main-line {
     background-color: #000;
-    color: #fff;
-    padding: 10px 20px;
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    border-bottom: 5px solid #007bff;
+    border: 0px solid #e0e7ff;
 }
 
-.header-left {
+
+.header-logo-container {
     display: flex;
     align-items: center;
+    flex-direction: column;
+    text-align: center;
 }
+
 
 .header-logo {
-    height: 70px;
-    margin-right: 15px;
+    height: 150px;
+    width: auto;
 }
 
-header h1 {
+
+.logo-text-bottom {
+    font-family: Arial, sans-serif;
     color: #FFD700;
-    margin: 0;
-    font-size: 2.2em;
+    font-size: 0.9em;
+    font-weight: bold;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.logo-tagline {
+    font-family: Arial, sans-serif;
+    color: #FFF;
+    font-size: 0.7em;
+    white-space: nowrap;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-end; 
+}
+.header-main-title {
+    font-family: Arial, sans-serif;
+    color: #FFD700;
+    font-size: 3.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
     white-space: nowrap;
 }
 
@@ -38,36 +64,32 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 25px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+    gap: 30px;
 }
 
 nav ul li a {
     text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
     color: #fff;
-    font-weight: bold;
-    font-size: 1.1em;
-    padding: 5px 0;
-    transition: color 0.3s ease;
+    font-weight: semi-bold;
+    font-size: 1em;
+    font-style: inter;
     white-space: nowrap;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #007bff;
+    color: #FFD700;
 }
-
-/* --- Styles pour le corps principal du site --- */
 main {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 20px auto;
+    padding: 0px;
+    max-width: 1800px;
+    margin: 0 auto;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 8px;
 }
 
-/* AGENDA */
 .agenda-container {
     max-width: 400px;
     margin: 50px auto;
@@ -80,7 +102,7 @@ main {
 h1 {
     text-align: center;
     color: #333;
-    margin-bottom: 20px;
+    margin: 0 0 20px 0;
 }
 
 label {
@@ -114,6 +136,87 @@ button:hover {
     background: #218838;
 }
 
+.coaching-section {
+    background: white;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.coaching-section h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+section .coaching-section img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.coaching-section p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.coaching-section .btn {
+    background: #28a745;
+}
+
+.coaching-section .btn:hover {
+    background: #218838;
+}
+
+.apropos-content {
+    max-width: 800px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    line-height: 1.7;
+    color: #444;
+}
+
+.apropos-content h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.apropos-content ul {
+    list-style: disc inside;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.apropos-content ul li {
+    margin-bottom: 10px;
+}
+
+.apropos-content ul li h3 {
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.apropos-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+
 /* COACHING PAGE */
 .coaching-section {
     background: white;
@@ -130,8 +233,8 @@ button:hover {
     font-size: 2em;
 }
 
-.coaching-section img {
-    max-width: 100%;
+section .coaching-section img {
+    width: 100%;
     height: auto;
     border-radius: 4px;
     margin-bottom: 20px;
@@ -325,7 +428,7 @@ main.auth-page {
 /* Ces styles s'appliquent aux inputs des formulaires d'auth/inscription */
 .auth-container input[type="email"],
 .auth-container input[type="password"],
-.auth-container input[type="text"] { /* Ajout de type="text" pour les champs prénom/nom */
+.auth-container input[type="text"] { 
     width: calc(100% - 20px);
     padding: 12px 10px;
     border: none;
@@ -385,15 +488,15 @@ main.auth-page {
 
 .btn-login {
     background: #007bff;
-    color: white; /* Assurer que le texte du bouton est blanc */
-    border: none; /* Assurer qu'il n'y a pas de bordure par défaut */
-    padding: 12px 20px; /* Un padding standard pour les boutons */
-    border-radius: 5px; /* Coins légèrement arrondis */
+    color: white; 
+    border: none; 
+    padding: 12px 20px; 
+    border-radius: 5px; 
     cursor: pointer;
     font-size: 1em;
     transition: background 0.3s ease;
-    width: 100%; /* S'étend sur toute la largeur de son conteneur */
-    box-sizing: border-box; /* Inclure padding et border dans la largeur */
+    width: 100%; 
+    box-sizing: border-box; 
     margin-bottom: 15px;
 }
 
@@ -412,9 +515,9 @@ main.auth-page {
     transition: background 0.3s ease;
     width: 100%;
     box-sizing: border-box;
-    display: block; /* S'assure qu'il prend la largeur complète */
-    text-decoration: none; /* Pour les cas où il est un <a> */
-    line-height: normal; /* Normalise la hauteur de ligne pour les <a> qui ressemblent à des boutons */
+    display: block; 
+    text-decoration: none; 
+    line-height: normal; 
 }
 
 .btn-register:hover {
@@ -426,9 +529,9 @@ main.auth-page {
 footer {
     background-color: #000;
     color: #fff;
-    padding: 30px 20px;
-    font-size: 0.9em;
-    border-top: 5px solid #007bff;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-top: 5px solid #e0e7ff;
 }
 
 .footer-content {
@@ -441,42 +544,23 @@ footer {
     text-align: center;
 }
 
-.footer-block {
-    flex: 1;
-    min-width: 280px;
-    margin: 15px;
-    padding: 10px;
-}
-
-.footer-logo-section {
-    flex-basis: 150px;
-    min-width: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.footer-block.footer-logo-section {
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start; 
+    gap: 20px; 
+    background-color: #000000; 
+    color: #FFB908; 
 }
 
 .footer-logo {
-    height: 100px;
-    display: block;
+    height: 130px; 
+    width: auto;
 }
 
-.footer-info-section {
-    flex-grow: 2;
-    text-align: center;
-}
-
-.footer-info-section p {
-    margin-bottom: 8px;
-    color: #ccc;
-    line-height: 1.5;
-}
-
-.footer-info-section .tagline {
-    color: #FFD700;
-    font-weight: bold;
-    font-size: 1.1em;
-    margin-bottom: 15px;
+.tagline {
+    margin: 0; 
+    font-size: 2.1em;
 }
 
 .footer-social-section {
@@ -507,23 +591,25 @@ footer {
     transform: scale(1.1);
 }
 
-.footer-bottom {
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px solid #333;
-    color: #888;
+
+
+/* Exemple de règle CSS pour les boutons */
+p a .btn {
+    display: inline-block; /* Assure que le bouton se comporte comme un bloc mais reste en ligne */
+    padding: 10px 20px;
+    background-color: #007bff; /* Couleur de fond bleue, par exemple */
+    color: white; /* Couleur du texte du bouton */
+    text-decoration: none; /* Supprime le soulignement des liens */
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
     text-align: center;
+    transition: background-color 0.3s ease;
 }
 
-.footer-bottom p a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: normal;
-    transition: color 0.3s ease;
-}
-
-.footer-bottom p a:hover {
-    color: #007bff;
+p a .btn:hover {
+    background-color: #0056b3; /* Effet au survol */
 }
 
 /* Media Queries pour le responsive */
@@ -565,7 +651,7 @@ footer {
     .auth-container,
     .coaching-section,
     .apropos-content,
-    .contact-form-section { /* Ajout de contact-form-section ici */
+    .contact-form-section { 
         padding: 20px;
         margin: 20px auto;
     }

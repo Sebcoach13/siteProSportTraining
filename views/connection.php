@@ -1,39 +1,37 @@
+<?php
+require_once __DIR__ . '/header.php';
+?>
+
 <main class="auth-page">
-    <div class="auth-container">
-        <p class="auth-intro">« Connectez-vous pour réserver votre séance de coaching »</p>
+    <section class="auth-container">
+        <h2>Connexion</h2>
 
-        <div class="profile-placeholder">
-            <img src="assets/img/utilisateur.png" alt="Icône de profil par défaut">
-        </div>
+        <?php
+        if (isset($_GET['error'])) {
+            echo '<p class="error-message">' . htmlspecialchars($_GET['error']) . '</p>';
+        }
+        if (isset($_GET['success'])) {
+            echo '<p class="success-message">' . htmlspecialchars($_GET['success']) . '</p>';
+        }
+        ?>
 
-        <form id="loginForm" action="index.php?page=connection" method="POST">
-            <?php
-            // Affichage du message d'erreur si la variable $error est définie et non vide
-            if (isset($error) && !empty($error)) {
-                echo '<p class="error-message">' . htmlspecialchars($error) . '</p>';
-            }
-            ?>
-
+        <form action="/siteProSportTraining/index.php?page=connection" method="POST">
             <div class="form-group">
-                <label for="email" class="sr-only">Email-ID</label>
-                <input type="email" id="email" name="email" placeholder="Email-ID" required value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
             </div>
 
             <div class="form-group">
-                <label for="password" class="sr-only">Password</label>
-                <input type="password" id="password" name="password" placeholder="Password" required>
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" required>
             </div>
 
-            <div class="form-options">
-                <label for="remember_me">
-                    <input type="checkbox" id="remember_me" name="remember_me"> Se souvenir de moi
-                </label>
-                <a href="#" class="forgot-password">Mot de passe oublié</a>
-            </div>
-
-            <button type="submit" name="submit_login" class="btn btn-login">LOGIN</button>
+            <button type="submit" name="submit_login" class="btn btn-login">Se connecter</button>
         </form>
-
-        <a href="index.php?page=inscription" class="btn btn-register">ENREGISTRER</a>
-    </div>
+        <p>Pas encore de compte ? <a href="/siteProSportTraining/index.php?page=inscription">Inscrivez-vous ici</a>.</p>
+    </section>
 </main>
+
+<?php
+require_once __DIR__ . '/footer.php';
+?>

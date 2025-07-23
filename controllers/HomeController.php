@@ -1,24 +1,27 @@
 <?php
-// controllers/HomeController.php
-
 class HomeController {
     public function index() {
-        require_once 'views/accueil.php'; // Votre page d'accueil
+        require_once __DIR__ . '/../views/accueil.php';
     }
 
     public function apropos() {
-        require_once 'views/apropos.php'; // Vue 'À propos'
+        require_once __DIR__ . '/../views/apropos.php';
     }
 
     public function coaching() {
-        require_once 'views/coaching.php'; // Vue 'Coaching'
+        require_once __DIR__ . '/../views/coaching.php';
     }
 
     public function mentionsLegales() {
-        require_once 'views/mentLegal.php'; // Vue 'Mentions Légales'
+        require_once __DIR__ . '/../views/mentLegal.php';
     }
 
     public function politiqueConfidentialite() {
-        require_once 'views/polConf.php'; // Vue 'Politique de Confidentialité'
+        require_once __DIR__ . '/../views/polConf.php';
+    }
+
+    public function notFound() {
+        require_once __DIR__ . '/../views/404.php';
     }
 }
+?>
