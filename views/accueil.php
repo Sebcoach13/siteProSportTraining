@@ -1,7 +1,32 @@
-<main>
-    <img src="/siteProSportTraining/assets/img/boxe.png" alt="Photo accueil">
+<div class="slideshow-container">
 
-    <h2>🎯 Coaching sportif personnalisé pour des résultats concrets</h2>
+        <div class="mySlides fade">
+            <img src="/siteProSportTraining/assets/img/boxe.png" style="width:100%" alt="Image 1 du carrousel">
+            <div class="text">boxe pour tout niveau</div>
+        </div>
+
+        <div class="mySlides fade">
+            <img src="/siteProSportTraining/assets/img/force.jpg" style="width:100%" alt="Image 2 du carrousel">
+            <div class="text">sport de force</div>
+        </div>
+
+        <div class="mySlides fade">
+            <img src="/siteProSportTraining/assets/img/streatch.jpg" style="width:100%" alt="Image 3 du carrousel">
+            <div class="text">remise en forme </div>
+        </div>
+        
+        <div class="mySlides fade">
+            <img src="/siteProSportTraining/assets/img/prepaP.jpg" style="width:100%" alt="Image 4 du carrousel"> <div class="text">Preparation physique</div>
+        </div>
+
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+<main>
+    </div> <h2>🎯 Coaching sportif personnalisé pour des résultats concrets</h2>
     <p>Retrouvez la forme, gagnez en énergie ou atteignez vos objectifs physiques grâce à un accompagnement 100 % sur mesure.
     Je vous propose un coaching adapté à votre niveau, vos besoins et votre rythme.</p>
 

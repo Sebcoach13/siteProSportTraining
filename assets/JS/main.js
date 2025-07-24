@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialisation de Flatpickr seulement si l'élément datepicker existe sur la page
     const datepickerInput = document.getElementById("datepicker");
     if (datepickerInput) {
         flatpickr(datepickerInput, {
@@ -13,19 +12,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Gestion de la soumission du formulaire d'agenda
     const agendaForm = document.getElementById("agendaForm");
-    if (agendaForm) { // Vérifie si le formulaire existe sur la page
+    if (agendaForm) { 
         agendaForm.addEventListener("submit", function(e) {
-            e.preventDefault(); // Empêche la soumission par défaut du formulaire
+            e.preventDefault(); 
 
-            const datetime = datepickerInput ? datepickerInput.value : ''; // Récupère la valeur du datepicker
+            const datetime = datepickerInput ? datepickerInput.value : ''; 
 
             if (datetime) {
-                // Stocke la date et l'heure sélectionnées dans le localStorage
                 localStorage.setItem("selectedDateTime", datetime);
 
-                // Redirection vers la page du panier
-                // ATTENTION : Pour l'architecture MVC PHP, vous ne devriez PAS rediriger vers '/panier.html'
-                // Vous devriez rediriger vers l'entrée de votre routeur PHP pour le panier, par ex:
                 window.location.href = "index.php?page=panier";
             } else {
                 alert("Veuillez choisir une date et une heure !");
@@ -33,3 +28,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 3000); // Change l'image toutes les 3 secondes (3000 ms)
+}

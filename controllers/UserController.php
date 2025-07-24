@@ -14,7 +14,6 @@ class UserController {
         $error = '';
         $success = '';
 
-        // Récupérer le message de succès de l'inscription si présent dans l'URL
         if (isset($_GET['registration_success']) && $_GET['registration_success'] === 'true') {
             $success = "Inscription réussie ! Vous pouvez maintenant vous connecter.";
         }
@@ -26,25 +25,19 @@ class UserController {
             if (empty($email) || empty($password)) {
                 $error = "Veuillez remplir tous les champs.";
             } else {
-                // L'appel à getUserByEmail va maintenant exécuter les 'die()' de débogage de UserModel.php
                 $user = $this->userModel->getUserByEmail($email);
 
-                // Une fois que les tests de UserModel sont passés et que vous avez supprimé les 'die()' là-bas,
-                // le code ci-dessous sera exécuté pour la vérification du mot de passe et la connexion.
                 if ($user && password_verify($password, $user['password'])) {
                     // Connexion réussie
-                    // NE PAS appeler session_start() ici, il est déjà appelé dans index.php
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['user_email'] = $user['email'];
                     $_SESSION['user_first_name'] = $user['firstname'];
                     $_SESSION['user_last_name'] = $user['lastname'];
                     $_SESSION['user_role'] = $user['role'];
 
-                    // Gérer "Se souvenir de moi"
                     if (isset($_POST['remember_me'])) {
                         $token = bin2hex(random_bytes(32));
                         $this->userModel->updateRememberToken($user['id'], $token); 
-                        // secure et httponly pour une meilleure sécurité du cookie
                         setcookie('remember_me_token', $token, time() + (86400 * 30), "/", "", false, true); 
                     } else {
                         $this->userModel->updateRememberToken($user['id'], null);
@@ -60,12 +53,10 @@ class UserController {
                     }
                     exit();
                 } else {
-                    // Ce message s'affichera si l'utilisateur n'est pas trouvé OU si le mot de passe est incorrect
                     $error = "Email ou mot de passe incorrect.";
                 }
             }
         }
-
         require_once __DIR__ . '/../views/connection.php';
     }
 

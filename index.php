@@ -19,7 +19,6 @@ spl_autoload_register(function ($className) {
 
 require_once 'config/config.php';
 
-// Logique de "se souvenir de moi"
 if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_me_token']) && !empty($_COOKIE['remember_me_token'])) {
     $userModel = new UserModel();
     $user = $userModel->getUserByRememberToken($_COOKIE['remember_me_token']);
@@ -40,7 +39,7 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_me_token']) && !emp
 }
 
 $page = $_GET['page'] ?? 'accueil';
-$isLoggedIn = isset($_SESSION['user_id']); // Vérifie si l'utilisateur est connecté
+$isLoggedIn = isset($_SESSION['user_id']); 
 
 // Pages qui nécessitent une authentification
 // Seul 'agenda' et le tunnel de commande sont protégés. 'contact' est accessible directement.
@@ -48,7 +47,6 @@ $protectedPages = ['agenda', 'panier', 'paiement', 'confirmation', 'confpaiement
 
 // Si la page demandée est protégée et que l'utilisateur n'est PAS connecté
 if (in_array($page, $protectedPages) && !$isLoggedIn) {
-    // Stocke la page d'origine pour redirection après connexion
     $_SESSION['redirect_after_login'] = $page;
     header('Location: /siteProSportTraining/index.php?page=connection&error=Vous devez être connecté ou inscrit pour accéder à cette page.');
     exit();
@@ -78,13 +76,11 @@ switch ($page) {
         break;
 
     case 'contact':
-        // ACCES DIRECT. Aucun changement nécessaire ici car ce n'est plus dans $protectedPages
         $controller = new ContactController();
         $controller->index();
         break;
 
     case 'agenda':
-        // LOGIQUE DEJA EN PLACE. Sera exécutée seulement si $isLoggedIn est true
         $controller = new ReservationController();
         $controller->agenda();
         break;
@@ -133,25 +129,21 @@ switch ($page) {
         break;
 
     case 'panier':
-        // LOGIQUE DEJA EN PLACE. Sera exécutée seulement si $isLoggedIn est true
         $controller = new CartController();
         $controller->index();
         break;
 
     case 'paiement':
-        // LOGIQUE DEJA EN PLACE. Sera exécutée seulement si $isLoggedIn est true
         $controller = new ReservationController();
         $controller->paiement();
         break;
 
     case 'confpaiement':
-        // LOGIQUE DEJA EN PLACE. Sera exécutée seulement si $isLoggedIn est true
         $controller = new ReservationController();
         $controller->confirmationPaiement();
         break;
 
     case 'confirmation':
-        // LOGIQUE DEJA EN PLACE. Sera exécutée seulement si $isLoggedIn est true
         $controller = new ReservationController();
         $controller->confirmation();
         break;
@@ -173,8 +165,7 @@ switch ($page) {
         break;
 }
 
-// Inclure le footer APRÈS l'exécution de la logique du contrôleur,
-// SAUF si c'est une requête API
+
 if (!isset($_GET['api']) || $_GET['api'] !== 'true') {
     require_once __DIR__ . '/views/footer.php';
 }

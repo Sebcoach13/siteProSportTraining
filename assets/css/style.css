@@ -1,7 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: Inter, sans-serif;
     margin: 0;
-    background: #f5f5f5;
+    background: #DEE5F6;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+/* --- Styles pour le Carrousel --- */
+.slideshow-container {
+    max-width: 100%; 
+    position: relative;
+    margin: auto;
+    overflow: hidden; 
+}
+
+.mySlides {
+    display: none;
+}
+.mySlides img {
+    width: 100%;
+    height: 700px; 
+    object-fit: cover; 
+    display: block;
+}
+
+.text {
+    color: #f2f2f2;
+    font-size: 3em;
+    padding: 20px 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0); 
+    font-weight: bold;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
 }
 
 /* --- Styles pour le Header (En-tête) --- */
@@ -14,7 +78,6 @@ body {
     border: 0px solid #e0e7ff;
 }
 
-
 .header-logo-container {
     display: flex;
     align-items: center;
@@ -22,15 +85,13 @@ body {
     text-align: center;
 }
 
-
 .header-logo {
     height: 150px;
     width: auto;
 }
 
-
 .logo-text-bottom {
-    font-family: Arial, sans-serif;
+    font-family: Inter, sans-serif;
     color: #FFD700;
     font-size: 0.9em;
     font-weight: bold;
@@ -39,7 +100,7 @@ body {
 }
 
 .logo-tagline {
-    font-family: Arial, sans-serif;
+    font-family: Inter, sans-serif;
     color: #FFF;
     font-size: 0.7em;
     white-space: nowrap;
@@ -50,11 +111,13 @@ body {
     flex-direction: column; 
     align-items: flex-end; 
 }
+
 .header-main-title {
-    font-family: Arial, sans-serif;
+    font-family: Inter, sans-serif;
     color: #FFD700;
-    font-size: 3.5em;
-    font-weight: bold;
+    font-size: 32px;
+    font-style: italic;
+    font-weight: 600;
     margin-bottom: 20px;
     white-space: nowrap;
 }
@@ -71,9 +134,7 @@ nav ul li a {
     text-decoration: none;
     font-family: 'Times New Roman', Times, serif;
     color: #fff;
-    font-weight: semi-bold;
-    font-size: 1em;
-    font-style: inter;
+    font-weight: 600;
     white-space: nowrap;
     transition: color 0.3s ease;
 }
@@ -81,15 +142,29 @@ nav ul li a {
 nav ul li a:hover {
     color: #FFD700;
 }
+
+/* --- Styles pour le Contenu Principal (Main) --- */
 main {
     padding: 0px;
     max-width: 1800px;
     margin: 0 auto;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 8px;
+    background-color: #DEE5F6;
 }
 
+main img {
+    min-width: 50%;
+    max-width: 100%;
+    height: 500px;
+    display: block;
+    margin: 0 auto;
+}
+
+main section {
+    padding: 20px;
+    margin: 20px 0;
+}
+
+/* --- Styles pour l'Agenda --- */
 .agenda-container {
     max-width: 400px;
     margin: 50px auto;
@@ -136,10 +211,11 @@ button:hover {
     background: #218838;
 }
 
+/* --- Styles pour la Section Coaching --- */
 .coaching-section {
     background: white;
     padding: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     text-align: center;
@@ -159,23 +235,30 @@ section .coaching-section img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    min-width: 0px;
 }
 
 .coaching-section p {
     color: #555;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: left;
 }
 
 .coaching-section .btn {
-    background: #28a745;
+    background: #299BE8;
+    padding: 15px;
+    border-radius: 22px;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .coaching-section .btn:hover {
-    background: #218838;
+    background: #17557f;
 }
 
+/* --- Styles pour la Section À Propos --- */
 .apropos-content {
     max-width: 800px;
     margin: 30px auto;
@@ -217,89 +300,16 @@ section .coaching-section img {
     border-radius: 8px;
 }
 
-/* COACHING PAGE */
-.coaching-section {
-    background: white;
-    padding: 30px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.coaching-section h2 {
-    color: #333;
-    margin-bottom: 20px;
-    font-size: 2em;
-}
-
-section .coaching-section img {
-    width: 100%;
+.coaching-photo {
+    min-width: 0px;
+    border-radius: 50%;
+    max-width: 80%;
     height: auto;
-    border-radius: 4px;
-    margin-bottom: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 20px;
+    object-fit: cover;
 }
 
-.coaching-section p {
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.coaching-section .btn {
-    background: #28a745;
-}
-
-.coaching-section .btn:hover {
-    background: #218838;
-}
-
-.apropos-content {
-    max-width: 800px;
-    margin: 30px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    line-height: 1.7;
-    color: #444;
-}
-
-.apropos-content h2 {
-    color: #333;
-    margin-bottom: 15px;
-    font-size: 1.8em;
-}
-
-.apropos-content ul {
-    list-style: disc inside;
-    margin-left: 20px;
-    margin-bottom: 20px;
-}
-
-.apropos-content ul li {
-    margin-bottom: 10px;
-}
-
-.apropos-content ul li h3 {
-    color: #333;
-    font-size: 1.2em;
-    margin-bottom: 5px;
-}
-
-.apropos-content img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 20px auto;
-    border-radius: 8px;
-}
-
-/* page contact */
+/* --- Styles pour la Page Contact --- */
 .contact-form-section {
     max-width: 600px;
     margin: 50px auto;
@@ -355,11 +365,13 @@ section .coaching-section img {
     transition: background-color 0.3s ease;
     text-align: center;
     text-decoration: none;
+    box-sizing: border-box;
 }
 
 .contact-form button[type="submit"] {
     background-color: #007bff;
     color: white;
+    max-width: 97%;
 }
 
 .contact-form button[type="submit"]:hover {
@@ -369,13 +381,14 @@ section .coaching-section img {
 .contact-form .secondary-button {
     background-color: #6c757d;
     color: white;
+    max-width: 92%;
 }
 
 .contact-form .secondary-button:hover {
     background-color: #5a6268;
 }
 
-/* AUTHENTICATION / CONNECTION / INSCRIPTION PAGE */
+/* --- Styles pour les Pages d'Authentification (Connexion/Inscription) --- */
 main.auth-page {
     display: flex;
     justify-content: center;
@@ -425,7 +438,6 @@ main.auth-page {
     position: relative;
 }
 
-/* Ces styles s'appliquent aux inputs des formulaires d'auth/inscription */
 .auth-container input[type="email"],
 .auth-container input[type="password"],
 .auth-container input[type="text"] { 
@@ -578,6 +590,7 @@ footer {
 .footer-social-section a {
     display: inline-block;
     margin: 0 5px;
+    color: white;
 }
 
 .footer-social-section img {
@@ -591,15 +604,12 @@ footer {
     transform: scale(1.1);
 }
 
-
-
-/* Exemple de règle CSS pour les boutons */
-p a .btn {
-    display: inline-block; /* Assure que le bouton se comporte comme un bloc mais reste en ligne */
+.btn { 
+    display: inline-block; 
     padding: 10px 20px;
-    background-color: #007bff; /* Couleur de fond bleue, par exemple */
-    color: white; /* Couleur du texte du bouton */
-    text-decoration: none; /* Supprime le soulignement des liens */
+    background-color: #007bff; 
+    color: white; 
+    text-decoration: none; 
     border-radius: 5px;
     border: none;
     cursor: pointer;
@@ -608,11 +618,11 @@ p a .btn {
     transition: background-color 0.3s ease;
 }
 
-p a .btn:hover {
-    background-color: #0056b3; /* Effet au survol */
+.btn:hover {
+    background-color: #0056b3; 
 }
 
-/* Media Queries pour le responsive */
+/* --- Media Queries pour le Responsive --- */
 @media (max-width: 768px) {
     .footer-content {
         flex-direction: column;
@@ -623,24 +633,33 @@ p a .btn:hover {
         margin-bottom: 20px;
     }
 
-    header {
+    .header-main-line { 
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         padding: 10px 20px;
     }
-    header nav ul {
+    .header-main-line nav ul { 
         flex-wrap: wrap;
         gap: 10px;
         justify-content: center;
         width: 100%;
     }
-    header nav ul li {
+    .header-main-line nav ul li { 
         width: calc(50% - 10px);
         text-align: center;
     }
-    header nav ul li a {
+    .header-main-line nav ul li a { 
         display: block;
         padding: 5px 0;
+    }
+
+    .header-right {
+        align-items: center;
+    }
+    .header-main-title {
+        font-size: 2em;
+        white-space: normal;
+        margin-bottom: 10px;
     }
 
     main {
@@ -669,12 +688,20 @@ p a .btn:hover {
     footer {
         padding: 20px 10px;
     }
-    footer img {
+    .footer-logo { 
         height: 80px;
+    }
+    .footer-block.footer-logo-section {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .tagline {
+        font-size: 1.5em;
+        white-space: normal;
     }
 }
 
-/* Styles pour les messages d'erreur et de succès */
+/* --- Styles pour les Messages d'Erreur et de Succès --- */
 .error-message {
     color: red;
     background-color: #ffe6e6;
