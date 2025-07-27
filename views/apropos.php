@@ -1,4 +1,4 @@
-<main>
+<main class="apropos-content"> 
     <h2>PRÉSENTATION</h2> <p>Bienvenue sur Pro Sport Training !</p> <p>Je suis ravi de vous accueillir sur ma plateforme dédiée à votre bien-être et à votre performance sportive ! Je crois que chaque individu a le potentiel d’atteindre ses objectifs de forme physique et de santé avec le bon soutien et les outils appropriés.</p>
 
     <h2>PRO SPORT TRAINING</h2> <p>Ma mission est de vous offrir un accompagnement personnalisé et professionnel pour vous aider à atteindre vos objectifs, que ce soit pour perdre du poids, gagner en masse musculaire, améliorer votre endurance, ou simplement vous sentir mieux dans votre corps. Je combine des programmes d’entraînement sur mesure, des conseils nutritionnels adaptés, et un suivi motivant pour vous guider tout au long de votre parcours.</p>
@@ -17,7 +17,8 @@
         </li>
     </ul>
 
-    <img src="assets/img/photo.png" alt="Photo du coach Pro Sport Training">
+    <img src="assets/img/photo.png" class="coaching-photo" alt="Photo du coach Pro Sport Training" >
+
 
     <a href="/siteProSportTraining/index.php?page=contact" class="btn">Me contacter</a>
 </main>

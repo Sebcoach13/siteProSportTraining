@@ -36,7 +36,6 @@ if (session_status() == PHP_SESSION_NONE) {
                         <li><a href="/siteProSportTraining/index.php?page=logout">DÉCONNEXION</a></li>
                     <?php endif; ?>
                 </ul>
-            </nav>
         </div>
     </header>
     <div class="content-wrapper">

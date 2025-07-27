@@ -115,10 +115,10 @@ a {
 .header-main-title {
     font-family: Inter, sans-serif;
     color: #FFD700;
-    font-size: 32px;
+    font-size: 50px;
     font-style: italic;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     white-space: nowrap;
 }
 
@@ -132,7 +132,7 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: inter;
     color: #fff;
     font-weight: 600;
     white-space: nowrap;
@@ -154,7 +154,7 @@ main {
 main img {
     min-width: 50%;
     max-width: 100%;
-    height: 500px;
+    height: auto;
     display: block;
     margin: 0 auto;
 }
@@ -228,6 +228,7 @@ button:hover {
 }
 
 section .coaching-section img {
+    min-width: 0px;
     width: 100%;
     height: auto;
     border-radius: 4px;
@@ -235,7 +236,6 @@ section .coaching-section img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    min-width: 0px;
 }
 
 .coaching-section p {
@@ -259,15 +259,8 @@ section .coaching-section img {
 }
 
 /* --- Styles pour la Section À Propos --- */
-.apropos-content {
-    max-width: 800px;
-    margin: 30px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    line-height: 1.7;
-    color: #444;
+.apropos-content {  
+    padding: 30px;    
 }
 
 .apropos-content h2 {
@@ -292,18 +285,11 @@ section .coaching-section img {
     margin-bottom: 5px;
 }
 
-.apropos-content img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 20px auto;
-    border-radius: 8px;
-}
 
 .coaching-photo {
     min-width: 0px;
     border-radius: 50%;
-    max-width: 80%;
+    max-width: 40%;
     height: auto;
     margin-top: 20px;
     object-fit: cover;
@@ -572,7 +558,7 @@ footer {
 
 .tagline {
     margin: 0; 
-    font-size: 2.1em;
+    font-size: 2.4em;
 }
 
 .footer-social-section {
