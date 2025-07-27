@@ -1,6 +1,4 @@
 <?php
-// models/UserModel.php
-
 require_once __DIR__ . '/../config/config.php';
 
 class UserModel {
@@ -53,6 +51,19 @@ class UserModel {
         }
     }
 
+    public function getUserById($id) {
+        $sql = "SELECT id, firstname, lastname, email, password, role, remember_token FROM users WHERE id = :id";
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log("Erreur dans getUserById: " . $e->getMessage());
+            return false;
+        }
+    }
+
     public function getUserByRememberToken($token) {
         $sql = "SELECT id, firstname, lastname, email, password, role FROM users WHERE remember_token = :token";
         try {
@@ -62,6 +73,23 @@ class UserModel {
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             error_log("Erreur dans getUserByRememberToken: " . $e->getMessage());
+            return false;
+        }
+    }
+    
+    public function updateUser($userId, $firstname, $lastname, $email, $password) {
+        $query = "UPDATE users SET firstname = :firstname, lastname = :lastname, email = :email, password = :password WHERE id = :id";
+        try {
+            $stmt = $this->pdo->prepare($query);
+            $stmt->bindParam(":firstname", $firstname);
+            $stmt->bindParam(":lastname", $lastname);
+            $stmt->bindParam(":email", $email);
+            $stmt->bindParam(":password", $password);
+            $stmt->bindParam(":id", $userId);
+
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            error_log("Erreur lors de la mise à jour de l'utilisateur: " . $e->getMessage());
             return false;
         }
     }

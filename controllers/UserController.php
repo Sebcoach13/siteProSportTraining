@@ -1,5 +1,4 @@
 <?php
-// controllers/UserController.php
 
 require_once __DIR__ . '/../models/UserModel.php';
 
@@ -28,7 +27,6 @@ class UserController {
                 $user = $this->userModel->getUserByEmail($email);
 
                 if ($user && password_verify($password, $user['password'])) {
-                    // Connexion réussie
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['user_email'] = $user['email'];
                     $_SESSION['user_first_name'] = $user['firstname'];
@@ -105,5 +103,71 @@ class UserController {
         header('Location: /siteProSportTraining/index.php?page=accueil');
         exit();
     }
+
+    public function monCompte() {
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: /siteProSportTraining/index.php?page=connection&error=Veuillez vous connecter pour accéder à cette page.');
+            exit();
+        }
+        require_once __DIR__ . '/../views/moncompte_view.php'; 
+    }
+
+    public function editProfile() {
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: /siteProSportTraining/index.php?page=connection&error=Veuillez vous connecter pour accéder à cette page.');
+            exit();
+        }
+
+        $user = $this->userModel->getUserById($_SESSION['user_id']);
+
+        if (!$user) {
+            $_SESSION = [];
+            session_destroy();
+            header('Location: /siteProSportTraining/index.php?page=connection&error=Votre session est invalide.');
+            exit();
+        }
+
+        $error = '';
+        $success = '';
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_update_profile'])) {
+            $firstname = trim($_POST['firstname'] ?? '');
+            $lastname = trim($_POST['lastname'] ?? '');
+            $email = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
+            $newPassword = $_POST['new_password'] ?? '';
+            $confirmNewPassword = $_POST['confirm_new_password'] ?? '';
+
+            if (empty($firstname) || empty($lastname)) {
+                $error = "Veuillez remplir le nom et le prénom.";
+            } elseif (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $error = "Veuillez entrer une adresse email valide.";
+            } elseif ($email !== $user['email'] && $this->userModel->emailExists($email)) {
+                $error = "Cette adresse email est déjà utilisée par un autre compte.";
+            }
+
+            if (!empty($newPassword)) {
+                if (strlen($newPassword) < 8) {
+                    $error = "Le nouveau mot de passe doit contenir au moins 8 caractères.";
+                } elseif ($newPassword !== $confirmNewPassword) {
+                    $error = "Les nouveaux mots de passe ne correspondent pas.";
+                }
+            }
+
+            if (empty($error)) {
+                $hashedPassword = !empty($newPassword) ? password_hash($newPassword, PASSWORD_DEFAULT) : $user['password'];
+
+                if ($this->userModel->updateUser($user['id'], $firstname, $lastname, $email, $hashedPassword)) {
+                    $_SESSION['user_email'] = $email;
+                    $_SESSION['user_first_name'] = $firstname;
+                    $_SESSION['user_last_name'] = $lastname;
+                    $success = "Votre profil a été mis à jour avec succès.";
+                    $user = $this->userModel->getUserById($_SESSION['user_id']); 
+                } else {
+                    $error = "Une erreur est survenue lors de la mise à jour du profil.";
+                }
+            }
+        }
+
+        require_once __DIR__ . '/../views/edit_profile_view.php';
+    }
 }
-?>

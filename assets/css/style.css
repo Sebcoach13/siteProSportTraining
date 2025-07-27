@@ -142,12 +142,26 @@ nav ul li a {
 nav ul li a:hover {
     color: #FFD700;
 }
+.container.my-5 {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #DEE5F6;
+}
+.alert.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #19752f;
+    padding: 12px 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
 
 /* --- Styles pour le Contenu Principal (Main) --- */
 main {
-    padding: 0px;
     max-width: 1800px;
-    margin: 0 auto;
+    margin: 50px auto;
+    padding: 30px;
     background-color: #DEE5F6;
 }
 
@@ -205,6 +219,20 @@ button {
     cursor: pointer;
     transition: background 0.3s;
     box-sizing: border-box;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
 }
 
 button:hover {

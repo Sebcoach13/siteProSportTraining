@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 spl_autoload_register(function ($className) {
@@ -41,20 +40,14 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_me_token']) && !emp
 $page = $_GET['page'] ?? 'accueil';
 $isLoggedIn = isset($_SESSION['user_id']); 
 
-// Pages qui nécessitent une authentification
-// Seul 'agenda' et le tunnel de commande sont protégés. 'contact' est accessible directement.
-$protectedPages = ['agenda', 'panier', 'paiement', 'confirmation', 'confpaiement'];
+$protectedPages = ['agenda', 'panier', 'paiement', 'confirmation', 'confpaiement', 'moncompte'];
 
-// Si la page demandée est protégée et que l'utilisateur n'est PAS connecté
 if (in_array($page, $protectedPages) && !$isLoggedIn) {
     $_SESSION['redirect_after_login'] = $page;
     header('Location: /siteProSportTraining/index.php?page=connection&error=Vous devez être connecté ou inscrit pour accéder à cette page.');
     exit();
 }
 
-
-// Inclure le header AVANT d'exécuter la logique du contrôleur,
-// SAUF si c'est une requête API
 if (!isset($_GET['api']) || $_GET['api'] !== 'true') {
     require_once __DIR__ . '/views/header.php';
 }
@@ -158,13 +151,26 @@ switch ($page) {
         $controller->politiqueConfidentialite();
         break;
 
+    case 'moncompte':
+        $controller = new UserController();
+        $controller->monCompte();
+        break;
+        case 'moncompte':
+        $controller = new UserController();
+        $controller->monCompte();
+        break;
+
+    case 'edit_profile': 
+        $controller = new UserController();
+        $controller->editProfile(); 
+        break;
+
     default:
         http_response_code(404);
         $controller = new HomeController();
         $controller->notFound();
         break;
 }
-
 
 if (!isset($_GET['api']) || $_GET['api'] !== 'true') {
     require_once __DIR__ . '/views/footer.php';
