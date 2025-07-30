@@ -14,7 +14,12 @@ try {
     ];
     $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
 } catch (PDOException $e) {
-    die("Erreur de connexion à la base de données : " . $e->getMessage());
+    echo "<h1>Erreur critique ! La connexion à la base de données a échoué.</h1>";
+    echo "<p>Veuillez contacter l'administrateur du site ou vérifier les logs.</p>";
+    echo "<p><strong>Message technique :</strong> " . htmlspecialchars($e->getMessage()) . "</p>";
+    echo "<p>Code d'erreur : " . $e->getCode() . "</p>";
+    error_log("ERREUR PDO de connexion dans config.php: " . $e->getMessage() . " (Code: " . $e->getCode() . ")");
+    exit();
 }
 
 ?>

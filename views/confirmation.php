@@ -1,31 +1,75 @@
-<main class="auth-page">
-    <div class="auth-container">
-        <p class="auth-intro">« Connectez-vous pour réserver votre séance de coaching »</p>
+<?php
+include_once __DIR__ . '/header.php';
+?>
 
-        <div class="profile-placeholder">
-            <img src="assets/img/default_profile.png" alt="Icône de profil par défaut">
-        </div>
+<main>
+    <section class="confirmation-section">
+        <h2>Confirmation de votre réservation</h2>
 
-        <form id="loginForm" action="index.php?page=connection" method="POST">
-            <div class="form-group">
-                <label for="email" class="sr-only">Email-ID</label> <input type="email" id="email" name="email" placeholder="Email-ID" required>
+        <?php if (isset($message)): ?>
+            <div class="alert alert-<?php echo htmlspecialchars($message['type']); ?>">
+                <?php echo htmlspecialchars($message['text']); ?>
             </div>
-
-            <div class="form-group">
-                <label for="password" class="sr-only">Password</label>
-                <input type="password" id="password" name="password" placeholder="Password" required>
-                <a href="#" class="forgot-password">S'inscrire</a> </div>
-
-            <div class="form-options">
-                <label for="remember_me">
-                    <input type="checkbox" id="remember_me" name="remember_me"> Se souvenir de moi
-                </label>
-                <a href="#" class="forgot-password">Mot de passe oublié</a>
+        <?php else: ?>
+            <div class="alert alert-success">
+                Votre réservation a été confirmée avec succès ! Un e-mail de confirmation vous a été envoyé.
             </div>
-
-            <button type="submit" class="btn btn-login">LOGIN</button>
-        </form>
-
-        <a href="index.php?page=inscription" class="btn btn-register">ENREGISTRER</a>
-    </div>
+        <?php endif; ?>
+        
+        <p>Merci pour votre confiance. Nous sommes impatients de vous accompagner !</p>
+        <a href="/siteProSportTraining/index.php?page=accueil" class="btn">Retour à l'accueil</a>
+        <a href="/siteProSportTraining/index.php?page=moncompte" class="btn secondary-button">Voir mes réservations</a>
+    </section>
 </main>
+
+<?php
+include_once __DIR__ . '/footer.php';
+?>
+
+<style>
+    .confirmation-section {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    .confirmation-section h2 {
+        color: var(--color-text-primary);
+        margin-bottom: 20px;
+        font-size: var(--font-size-title-secondary);
+    }
+    .confirmation-section p {
+        color: var(--color-text-primary);
+        margin-bottom: 30px;
+    }
+    .confirmation-section .btn {
+        margin: 10px;
+    }
+    .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        text-align: left;
+    }
+    .alert-success {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+    }
+    .alert-error {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
+    .secondary-button {
+        background-color: #6c757d;
+        color: white;
+    }
+    .secondary-button:hover {
+        background-color: #5a6268;
+    }
+</style>

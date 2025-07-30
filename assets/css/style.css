@@ -1,22 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+:root {
+    --color-text-primary: #000000;
+    --color-text-nav-button: #FFFEFE;
+    --color-background-primary: #DEE5F6;
+    --color-button-background: #299BE8;
+    --color-button-hover: #1a7bbd;
+    --color-accent-yellow: #FFD700;
+    --color-background-light-grey: #f5f5f5;
+
+    --font-family-inter: 'Inter', sans-serif;
+    --font-weight-regular: 400;
+    --font-weight-semi-bold: 600;
+    --font-weight-bold: bold;
+    --font-style-italic: italic;
+
+    --font-size-text-main: 1em;
+    --font-size-title-main: 50px;
+    --font-size-title-secondary: 2em;
+    --font-size-nav-link: 1em;
+    --font-size-logo-text-bottom: 0.9em;
+    --font-size-logo-tagline: 0.7em;
+    --font-size-button: 1em;
+    --font-size-footer: 1em;
+}
+
 body {
-    font-family: Inter, sans-serif;
+    font-family: var(--font-family-inter);
     margin: 0;
-    background: #DEE5F6;
+    background: var(--color-background-primary);
 }
 
 a {
-    color: white;
+    color: var(--color-text-nav-button);
     text-decoration: none;
 }
 
-/* --- Styles pour le Carrousel --- */
 .slideshow-container {
-    max-width: 100%; 
+    max-width: 100%;
     position: relative;
     margin: auto;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .mySlides {
@@ -24,8 +48,8 @@ a {
 }
 .mySlides img {
     width: 100%;
-    height: 700px; 
-    object-fit: cover; 
+    height: 700px;
+    object-fit: cover;
     display: block;
 }
 
@@ -39,8 +63,8 @@ a {
     transform: translate(-50%, -50%);
     width: 40%;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0); 
-    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0);
+    font-weight: var(--font-weight-bold);
 }
 
 .dot {
@@ -68,9 +92,8 @@ a {
     to {opacity: 1}
 }
 
-/* --- Styles pour le Header (En-tête) --- */
 .header-main-line {
-    background-color: #000;
+    background-color: var(--color-text-primary);
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
@@ -91,40 +114,41 @@ a {
 }
 
 .logo-text-bottom {
-    font-family: Inter, sans-serif;
-    color: #FFD700;
-    font-size: 0.9em;
-    font-weight: bold;
+    font-family: var(--font-family-inter);
+    color: var(--color-accent-yellow);
+    font-size: var(--font-size-logo-text-bottom);
+    font-weight: var(--font-weight-bold);
     line-height: 1.2;
     white-space: nowrap;
 }
 
 .logo-tagline {
-    font-family: Inter, sans-serif;
-    color: #FFF;
-    font-size: 0.7em;
+    font-family: var(--font-family-inter);
+    color: var(--color-text-nav-button);
+    font-size: var(--font-size-logo-tagline);
     white-space: nowrap;
 }
 
 .header-right {
     display: flex;
-    flex-direction: column; 
-    align-items: flex-end; 
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .header-main-title {
-    font-family: Inter, sans-serif;
-    color: #FFD700;
-    font-size: 50px;
-    font-style: italic;
-    font-weight: 600;
+    font-family: var(--font-family-inter);
+    color: var(--color-accent-yellow);
+    font-size: var(--font-size-title-main);
+    font-style: var(--font-style-italic);
+    font-weight: var(--font-weight-semi-bold);
     margin-bottom: 40px;
     white-space: nowrap;
+    text-transform: uppercase;
 }
 
 nav ul {
     list-style: none;
-    margin: 0;
+    margin-bottom: 10px;
     padding: 0;
     display: flex;
     gap: 30px;
@@ -132,21 +156,21 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    font-family: inter;
-    color: #fff;
-    font-weight: 600;
+    font-family: var(--font-family-inter);
+    color: var(--color-text-nav-button);
+    font-weight: var(--font-weight-semi-bold);
     white-space: nowrap;
     transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #FFD700;
+    color: var(--color-background-primary);
 }
 .container.my-5 {
     max-width: 1000px;
     margin: 50px auto;
     padding: 30px;
-    background-color: #DEE5F6;
+    background-color: var(--color-background-primary);
 }
 .alert.alert-success {
     background-color: #d4edda;
@@ -157,12 +181,34 @@ nav ul li a:hover {
     margin-bottom: 20px;
 }
 
-/* --- Styles pour le Contenu Principal (Main) --- */
 main {
     max-width: 1800px;
-    margin: 50px auto;
+    margin: 0 auto;
     padding: 30px;
-    background-color: #DEE5F6;
+    background-color: var(--color-background-primary);
+}
+
+main h2 {
+    font-weight: var(--font-weight-bold);
+    font-style: var(--font-style-italic);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-title-secondary);
+}
+
+main p {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-text-main);
+    line-height: 1.6;
+}
+
+main ul li {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-text-main);
+}
+
+main ul li h3 {
+    color: var(--color-text-primary);
+    font-size: 1.2em;
 }
 
 main img {
@@ -178,81 +224,84 @@ main section {
     margin: 20px 0;
 }
 
-/* --- Styles pour l'Agenda --- */
-.agenda-container {
-    max-width: 400px;
-    margin: 50px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-h1 {
-    text-align: center;
-    color: #333;
-    margin: 0 0 20px 0;
-}
-
-label {
-    font-weight: bold;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+#calendar-container {
+    width: 90%;
+    max-width: 1000px;
+    background-color: var(--color-background-light-grey);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
     box-sizing: border-box;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-button {
-    margin-top: 20px;
-    width: 100%;
-    padding: 12px;
-    background: #28a745;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s;
-    box-sizing: border-box;
-}
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: center;
+.fc .fc-button {
+    background-color: var(--color-button-background) !important;
+    color: var(--color-text-nav-button) !important;
+    border-radius: 8px !important;
+    border: none !important;
+    padding: 8px 15px !important;
+    margin: 0 5px !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     transition: background-color 0.3s ease;
-    margin-bottom: 20px;
+}
+.fc .fc-button:hover {
+    background-color: var(--color-button-hover) !important;
+}
+.fc .fc-toolbar-title {
+    font-size: 1.8em !important;
+    color: var(--color-text-primary) !important;
+    font-weight: var(--font-weight-semi-bold) !important;
+}
+.fc-daygrid-event {
+    border-radius: 6px !important;
+    padding: 3px 5px !important;
+    font-size: 0.9em !important;
+    color: var(--color-text-primary) !important;
+}
+.fc-event-main {
+    color: #fff !important;
 }
 
-button:hover {
-    background: #218838;
+/* Styles pour les numéros de jour du calendrier */
+#calendar-container .fc-daygrid-day-number {
+    color: var(--color-text-primary) !important;
 }
 
-/* --- Styles pour la Section Coaching --- */
+#calendar-container .fc-day-other .fc-daygrid-day-number {
+    color: var(--color-text-primary) !important;
+    opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+    #calendar-container {
+        width: 98%;
+        padding: 15px;
+    }
+    .fc .fc-toolbar-title {
+        font-size: 1.4em !important;
+    }
+    .fc .fc-button-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+    }
+}
+
 .coaching-section {
-    background: white;
+    background: var(--color-background-primary);
     padding: 30px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 1px;
     text-align: center;
 }
 
 .coaching-section h2 {
-    color: #333;
+    color: var(--color-text-primary);
     margin-bottom: 20px;
-    font-size: 2em;
+    font-size: var(--font-size-title-secondary);
 }
 
 section .coaching-section img {
@@ -267,34 +316,33 @@ section .coaching-section img {
 }
 
 .coaching-section p {
-    color: #555;
+    color: var(--color-text-primary);
     line-height: 1.6;
     margin-bottom: 30px;
-    text-align: left;
+    text-align: center;
 }
 
 .coaching-section .btn {
-    background: #299BE8;
+    background: var(--color-button-background);
     padding: 15px;
     border-radius: 22px;
-    color: white;
+    color: var(--color-text-nav-button);
     text-decoration: none;
     display: inline-block;
 }
 
 .coaching-section .btn:hover {
-    background: #17557f;
+    background: var(--color-button-hover);
 }
 
-/* --- Styles pour la Section À Propos --- */
-.apropos-content {  
-    padding: 30px;    
+.apropos-content {
+    padding: 30px;
 }
 
 .apropos-content h2 {
-    color: #333;
+    color: var(--color-text-primary);
     margin-bottom: 15px;
-    font-size: 1.8em;
+    font-size: var(--font-size-title-secondary);
 }
 
 .apropos-content ul {
@@ -305,49 +353,49 @@ section .coaching-section img {
 
 .apropos-content ul li {
     margin-bottom: 10px;
+    color: var(--color-text-primary);
 }
 
 .apropos-content ul li h3 {
-    color: #333;
+    color: var(--color-text-primary);
     font-size: 1.2em;
-    margin-bottom: 5px;
 }
 
 
 .coaching-photo {
     min-width: 0px;
     border-radius: 50%;
-    max-width: 40%;
+    max-width: 30%;
     height: auto;
     margin-top: 20px;
     object-fit: cover;
 }
 
-/* --- Styles pour la Page Contact --- */
 .contact-form-section {
     max-width: 600px;
     margin: 50px auto;
     padding: 30px;
-    background-color: #f9f9f9;
+    background-color: var(--color-background-light-grey);
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .contact-form-section h2 {
     text-align: center;
-    color: #333;
+    color: var(--color-text-primary);
     margin-bottom: 30px;
 }
 
 .contact-form .form-group {
     margin-bottom: 20px;
+    position: relative;
 }
 
 .contact-form label {
     display: block;
     margin-bottom: 8px;
-    font-weight: bold;
-    color: #555;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
 }
 
 .contact-form input[type="text"],
@@ -357,7 +405,7 @@ section .coaching-section img {
     padding: 12px 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: var(--font-size-text-main);
     box-sizing: border-box;
 }
 
@@ -373,8 +421,8 @@ section .coaching-section img {
     margin-top: 20px;
     border: none;
     border-radius: 5px;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: var(--font-size-button);
+    font-weight: var(--font-weight-bold);
     cursor: pointer;
     transition: background-color 0.3s ease;
     text-align: center;
@@ -383,13 +431,13 @@ section .coaching-section img {
 }
 
 .contact-form button[type="submit"] {
-    background-color: #007bff;
-    color: white;
+    background-color: var(--color-button-background);
+    color: var(--color-text-nav-button);
     max-width: 97%;
 }
 
 .contact-form button[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: var(--color-button-hover);
 }
 
 .contact-form .secondary-button {
@@ -402,13 +450,12 @@ section .coaching-section img {
     background-color: #5a6268;
 }
 
-/* --- Styles pour les Pages d'Authentification (Connexion/Inscription) --- */
 main.auth-page {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - 150px);
-    background: #e0e7ff;
+    background: var(--color-background-primary);
 }
 
 .auth-container {
@@ -424,9 +471,9 @@ main.auth-page {
 
 .auth-intro {
     font-size: 1.2em;
-    color: #333;
+    color: var(--color-text-primary);
     margin-bottom: 30px;
-    font-weight: bold;
+    font-weight: var(--font-weight-bold);
 }
 
 .profile-placeholder {
@@ -454,7 +501,7 @@ main.auth-page {
 
 .auth-container input[type="email"],
 .auth-container input[type="password"],
-.auth-container input[type="text"] { 
+.auth-container input[type="text"] {
     width: calc(100% - 20px);
     padding: 12px 10px;
     border: none;
@@ -462,12 +509,13 @@ main.auth-page {
     background: transparent;
     font-size: 1.1em;
     outline: none;
+    color: var(--color-text-primary);
 }
 
 .auth-container input[type="email"]:focus,
 .auth-container input[type="password"]:focus,
 .auth-container input[type="text"]:focus {
-    border-color: #007bff;
+    border-color: var(--color-button-background);
 }
 
 .sr-only {
@@ -494,8 +542,8 @@ main.auth-page {
 .form-options label {
     display: flex;
     align-items: center;
-    font-weight: normal;
-    color: #555;
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text-primary);
 }
 
 .form-options input[type="checkbox"] {
@@ -504,7 +552,7 @@ main.auth-page {
 }
 
 .forgot-password {
-    color: #007bff;
+    color: var(--color-button-background);
     text-decoration: none;
 }
 
@@ -513,37 +561,39 @@ main.auth-page {
 }
 
 .btn-login {
-    background: #007bff;
-    color: white; 
-    border: none; 
-    padding: 12px 20px; 
-    border-radius: 5px; 
+    background: var(--color-button-background);
+    color: var(--color-text-nav-button);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 1em;
+    font-size: var(--font-size-button);
+    font-weight: var(--font-weight-bold);
     transition: background 0.3s ease;
-    width: 100%; 
-    box-sizing: border-box; 
+    width: 100%;
+    box-sizing: border-box;
     margin-bottom: 15px;
 }
 
 .btn-login:hover {
-    background: #0056b3;
+    background: var(--color-button-hover);
 }
 
 .btn-register {
     background: #f0f0f0;
-    color: #333;
+    color: var(--color-text-primary);
     border: 1px solid #ccc;
     padding: 12px 20px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1em;
+    font-size: var(--font-size-button);
+    font-weight: var(--font-weight-bold);
     transition: background 0.3s ease;
     width: 100%;
     box-sizing: border-box;
-    display: block; 
-    text-decoration: none; 
-    line-height: normal; 
+    display: block;
+    text-decoration: none;
+    line-height: normal;
 }
 
 .btn-register:hover {
@@ -551,12 +601,11 @@ main.auth-page {
 }
 
 
-/* --- Styles pour le Footer (Pied de page) --- */
 footer {
-    background-color: #000;
-    color: #fff;
+    background-color: var(--color-text-primary);
+    color: var(--color-text-nav-button);
     padding: 10px 20px;
-    font-size: 1em;
+    font-size: var(--font-size-footer);
     border-top: 5px solid #e0e7ff;
 }
 
@@ -571,22 +620,23 @@ footer {
 }
 
 .footer-block.footer-logo-section {
-    display: flex; 
-    align-items: center; 
-    justify-content: flex-start; 
-    gap: 20px; 
-    background-color: #000000; 
-    color: #FFB908; 
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    background-color: var(--color-text-primary);
+    color: var(--color-background-primary);
 }
 
 .footer-logo {
-    height: 130px; 
+    height: 130px;
     width: auto;
 }
 
 .tagline {
-    margin: 0; 
+    margin: 0;
     font-size: 2.4em;
+    color: var(--color-accent-yellow);
 }
 
 .footer-social-section {
@@ -596,15 +646,15 @@ footer {
 }
 
 .footer-social-section p {
-    font-weight: bold;
+    font-weight: var(--font-weight-bold);
     margin-bottom: 10px;
-    color: #fff;
+    color: var(--color-text-nav-button);
 }
 
 .footer-social-section a {
     display: inline-block;
     margin: 0 5px;
-    color: white;
+    color: var(--color-text-nav-button);
 }
 
 .footer-social-section img {
@@ -618,25 +668,25 @@ footer {
     transform: scale(1.1);
 }
 
-.btn { 
-    display: inline-block; 
+.btn {
+    display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff; 
-    color: white; 
-    text-decoration: none; 
+    background-color: var(--color-button-background);
+    color: var(--color-text-nav-button);
+    text-decoration: none;
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    font-size: 16px;
+    font-size: var(--font-size-button);
+    font-weight: var(--font-weight-regular);
     text-align: center;
     transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #0056b3; 
+    background-color: var(--color-button-hover);
 }
 
-/* --- Media Queries pour le Responsive --- */
 @media (max-width: 768px) {
     .footer-content {
         flex-direction: column;
@@ -647,22 +697,22 @@ footer {
         margin-bottom: 20px;
     }
 
-    .header-main-line { 
+    .header-main-line {
         flex-direction: column;
         align-items: center;
         padding: 10px 20px;
     }
-    .header-main-line nav ul { 
+    .header-main-line nav ul {
         flex-wrap: wrap;
         gap: 10px;
         justify-content: center;
         width: 100%;
     }
-    .header-main-line nav ul li { 
+    .header-main-line nav ul li {
         width: calc(50% - 10px);
         text-align: center;
     }
-    .header-main-line nav ul li a { 
+    .header-main-line nav ul li a {
         display: block;
         padding: 5px 0;
     }
@@ -684,7 +734,7 @@ footer {
     .auth-container,
     .coaching-section,
     .apropos-content,
-    .contact-form-section { 
+    .contact-form-section {
         padding: 20px;
         margin: 20px auto;
     }
@@ -702,7 +752,7 @@ footer {
     footer {
         padding: 20px 10px;
     }
-    .footer-logo { 
+    .footer-logo {
         height: 80px;
     }
     .footer-block.footer-logo-section {
@@ -713,9 +763,22 @@ footer {
         font-size: 1.5em;
         white-space: normal;
     }
+
+    #calendar-container {
+        width: 98%;
+        padding: 15px;
+    }
+    .fc .fc-toolbar-title {
+        font-size: 1.4em !important;
+    }
+    .fc .fc-button-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+    }
 }
 
-/* --- Styles pour les Messages d'Erreur et de Succès --- */
 .error-message {
     color: red;
     background-color: #ffe6e6;

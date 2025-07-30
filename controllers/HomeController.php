@@ -1,4 +1,6 @@
 <?php
+// controllers/HomeController.php
+
 class HomeController {
     public function index() {
         require_once __DIR__ . '/../views/accueil.php';
@@ -13,15 +15,19 @@ class HomeController {
     }
 
     public function mentionsLegales() {
-        require_once __DIR__ . '/../views/mentLegal.php';
+        require_once __DIR__ . '/../views/mentions-legales.php';
     }
 
     public function politiqueConfidentialite() {
-        require_once __DIR__ . '/../views/polConf.php';
+        require_once __DIR__ . '/../views/politique-confidentialite.php';
     }
 
     public function notFound() {
         require_once __DIR__ . '/../views/404.php';
     }
+
+   
+    public function agenda() {
+        require_once __DIR__ . '/../views/agenda.php';
+    }
 }
-?>

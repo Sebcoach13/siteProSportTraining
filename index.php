@@ -31,19 +31,20 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_me_token']) && !emp
 
         $newToken = bin2hex(random_bytes(32));
         $userModel->updateRememberToken($user['id'], $newToken);
-        setcookie('remember_me_token', $newToken, time() + (86400 * 30), '/');
+        setcookie('remember_me_token', $newToken, time() + (86400 * 30), '/', '', false, true);
     } else {
         setcookie('remember_me_token', '', time() - 3600, '/');
     }
 }
 
 $page = $_GET['page'] ?? 'accueil';
-$isLoggedIn = isset($_SESSION['user_id']); 
+$isLoggedIn = isset($_SESSION['user_id']);
 
 $protectedPages = ['agenda', 'panier', 'paiement', 'confirmation', 'confpaiement', 'moncompte'];
 
 if (in_array($page, $protectedPages) && !$isLoggedIn) {
     $_SESSION['redirect_after_login'] = $page;
+    $_SESSION['redirect_after_login_params'] = $_GET;
     header('Location: /siteProSportTraining/index.php?page=connection&error=Vous devez être connecté ou inscrit pour accéder à cette page.');
     exit();
 }
@@ -74,7 +75,7 @@ switch ($page) {
         break;
 
     case 'agenda':
-        $controller = new ReservationController();
+        $controller = new HomeController();
         $controller->agenda();
         break;
 
@@ -106,7 +107,7 @@ switch ($page) {
         $controller->register();
         break;
     
-    case 'register':
+    case 'register': 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $controller = new UserController();
             $controller->register();
@@ -131,6 +132,11 @@ switch ($page) {
         $controller->paiement();
         break;
 
+    case 'paiement_process': // NOUVELLE ROUTE POUR LE TRAITEMENT STRIPE
+        $controller = new ReservationController();
+        $controller->processStripePayment();
+        break;
+
     case 'confpaiement':
         $controller = new ReservationController();
         $controller->confirmationPaiement();
@@ -151,11 +157,7 @@ switch ($page) {
         $controller->politiqueConfidentialite();
         break;
 
-    case 'moncompte':
-        $controller = new UserController();
-        $controller->monCompte();
-        break;
-        case 'moncompte':
+    case 'moncompte': 
         $controller = new UserController();
         $controller->monCompte();
         break;
@@ -175,5 +177,4 @@ switch ($page) {
 if (!isset($_GET['api']) || $_GET['api'] !== 'true') {
     require_once __DIR__ . '/views/footer.php';
 }
-
 ?>

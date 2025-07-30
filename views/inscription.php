@@ -15,7 +15,7 @@ require_once __DIR__ . '/header.php';
         }
         ?>
 
-        <form action="/siteProSportTraining/controllers/AuthController.php" method="POST">
+        <form action="/siteProSportTraining/index.php?page=inscription" method="POST">
             <div class="form-group">
                 <label for="firstname">Prénom (Optionnel) :</label>
                 <input type="text" id="firstname" name="firstname" value="<?php echo htmlspecialchars($_POST['firstname'] ?? ''); ?>">
@@ -43,7 +43,7 @@ require_once __DIR__ . '/header.php';
 
             <button type="submit" name="submit_register" class="btn btn-login">S'inscrire</button>
         </form>
-        <p>Déjà un compte ? <a href="/siteProSportTraining/views/connection.php">Connectez-vous ici</a>.</p>
+        <p>Déjà un compte ? <a href="/siteProSportTraining/index.php?page=connection">Connectez-vous ici</a>.</p>
     </section>
 </main>
 
