@@ -1,5 +1,4 @@
 <?php
-// views/paiement.php
 include_once __DIR__ . '/header.php';
 ?>
 
@@ -24,12 +23,7 @@ include_once __DIR__ . '/header.php';
             <form id="payment-form" class="paiement-form">
                 <div class="form-group">
                     <label for="card-element">Détails de la carte :</label>
-                    <!-- Un élément sera inséré ici par Stripe.js pour les champs de carte sécurisés -->
-                    <div id="card-element">
-                        <!-- Stripe Elements will be inserted here -->
-                        <input type="text" id="card_number" placeholder="Numéro de carte" required style="width: calc(100% - 20px); padding: 12px 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; box-sizing: border-box; margin-bottom: 15px;">
-                        <input type="text" id="card_expiry" placeholder="MM/AA" required style="width: calc(50% - 25px); padding: 12px 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; box-sizing: border-box; margin-right: 10px;">
-                        <input type="text" id="card_cvc" placeholder="CVC" required style="width: calc(50% - 25px); padding: 12px 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; box-sizing: border-box;">
+                    <div id="card-element" class="stripe-card-element">
                     </div>
                 </div>
                 <div id="card-errors" role="alert" class="error-message" style="display:none;"></div>
@@ -43,60 +37,59 @@ include_once __DIR__ . '/header.php';
 include_once __DIR__ . '/footer.php';
 ?>
 
-<!-- Stripe.js CDN -->
 <script src="https://js.stripe.com/v3/"></script>
 
 <script>
-    // Remplacez 'pk_test_YOUR_PUBLISHABLE_KEY' par votre clé publique Stripe réelle
-    // C'est une clé PUBLIABLE, elle peut être exposée en toute sécurité.
-    const stripe = Stripe('pk_test_51PZ2Wd2Lg9F7sU6kEaMv2WbWcQJ1C0Sg1XyYm2N6O2J7K9L0M1N2O3P4Q5R6S7T8U9V0W1X2Y3Z4'); // Exemple de clé test
+    const stripe = Stripe('pk_test_51RqcmGEHBPogubYZpUcshH9bvH29lDhrtwWFrBmgSU2nhKJHslRwbNh3W2x9JWGpOwaIofPlYFTOjIMIEoYd2q8B00HeegEL0c'); 
+    const elements = stripe.elements();
+
+    const card = elements.create('card');
+    card.mount('#card-element');
+
+    card.addEventListener('change', function(event) {
+        const displayError = document.getElementById('card-errors');
+        if (event.error) {
+            displayError.textContent = event.error.message;
+            displayError.style.display = 'block';
+        } else {
+            displayError.textContent = '';
+            displayError.style.display = 'none';
+        }
+    });
 
     const form = document.getElementById('payment-form');
-    const cardNumberInput = document.getElementById('card_number');
-    const cardExpiryInput = document.getElementById('card_expiry');
-    const cardCvcInput = document.getElementById('card_cvc');
     const cardErrors = document.getElementById('card-errors');
 
     form.addEventListener('submit', async function(event) {
-        event.preventDefault(); // Empêche la soumission normale du formulaire
+        event.preventDefault();
 
-        // Récupérer les valeurs des champs (pour cette démo simplifiée)
-        const cardNumber = cardNumberInput.value;
-        const cardExpiry = cardExpiryInput.value; // Format MM/AA
-        const cardCvc = cardCvcInput.value;
-
-        // Extraire mois et année de la date d'expiration
-        const [expMonth, expYear] = cardExpiry.split('/');
-
-        // Créer un token de carte avec Stripe.js
-        const { token, error } = await stripe.createToken('card', {
-            number: cardNumber,
-            exp_month: expMonth,
-            exp_year: expYear,
-            cvc: cardCvc
-        });
+        const { token, error } = await stripe.createToken(card);
 
         if (error) {
-            // Afficher les erreurs à l'utilisateur
             cardErrors.textContent = error.message;
             cardErrors.style.display = 'block';
         } else {
-            // Envoyer le token au serveur PHP
             cardErrors.style.display = 'none';
-            const response = await fetch('/siteProSportTraining/index.php?page=paiement_process', { // Nouvelle route
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ stripeToken: token.id })
-            });
 
-            const result = await response.json();
+            try {
+                const response = await fetch('/siteProSportTraining/index.php?page=paiement_process', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ stripeToken: token.id })
+                });
 
-            if (result.success) {
-                window.location.href = '/siteProSportTraining/index.php?page=confpaiement';
-            } else {
-                cardErrors.textContent = result.message || 'Une erreur est survenue lors du paiement.';
+                const result = await response.json();
+
+                if (result.success) {
+                    window.location.href = '/siteProSportTraining/index.php?page=confpaiement';
+                } else {
+                    cardErrors.textContent = result.message || 'Une erreur est survenue lors du paiement.';
+                    cardErrors.style.display = 'block';
+                }
+            } catch (fetchError) {
+                cardErrors.textContent = 'Erreur de connexion au serveur de paiement.';
                 cardErrors.style.display = 'block';
             }
         }
@@ -160,7 +153,12 @@ include_once __DIR__ . '/footer.php';
         font-weight: var(--font-weight-bold);
         color: var(--color-text-primary);
     }
-    /* Les styles pour les inputs sont maintenant définis inline pour la démo, ou via Stripe Elements */
+    .stripe-card-element {
+        padding: 12px 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #fff;
+    }
     .paiement-form .form-row {
         display: flex;
         gap: 20px;

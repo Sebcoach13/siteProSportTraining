@@ -43,7 +43,7 @@ class ReservationController {
         }
 
         $amountInCents = $total * 100;
-
+        
         unset($_SESSION['cart']);
         echo json_encode(['success' => true, 'message' => 'Paiement simulé réussi !']);
         exit();

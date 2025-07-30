@@ -40,7 +40,7 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_me_token']) && !emp
 $page = $_GET['page'] ?? 'accueil';
 $isLoggedIn = isset($_SESSION['user_id']);
 
-$protectedPages = ['agenda', 'panier', 'paiement', 'confirmation', 'confpaiement', 'moncompte'];
+$protectedPages = ['agenda', 'panier', 'paiement', 'confirmation', 'confpaiement', 'moncompte', 'mesreservations'];
 
 if (in_array($page, $protectedPages) && !$isLoggedIn) {
     $_SESSION['redirect_after_login'] = $page;
@@ -49,7 +49,7 @@ if (in_array($page, $protectedPages) && !$isLoggedIn) {
     exit();
 }
 
-if (!isset($_GET['api']) || $_GET['api'] !== 'true') {
+if ((!isset($_GET['api']) || $_GET['api'] !== 'true') && $page !== 'paiement_process') {
     require_once __DIR__ . '/views/header.php';
 }
 
@@ -132,7 +132,7 @@ switch ($page) {
         $controller->paiement();
         break;
 
-    case 'paiement_process': // NOUVELLE ROUTE POUR LE TRAITEMENT STRIPE
+    case 'paiement_process':
         $controller = new ReservationController();
         $controller->processStripePayment();
         break;
@@ -162,6 +162,11 @@ switch ($page) {
         $controller->monCompte();
         break;
 
+    case 'mesreservations':
+        $controller = new UserController();
+        $controller->mesReservations();
+        break;
+
     case 'edit_profile': 
         $controller = new UserController();
         $controller->editProfile(); 
@@ -174,7 +179,7 @@ switch ($page) {
         break;
 }
 
-if (!isset($_GET['api']) || $_GET['api'] !== 'true') {
+if ((!isset($_GET['api']) || $_GET['api'] !== 'true') && $page !== 'paiement_process') {
     require_once __DIR__ . '/views/footer.php';
 }
 ?>
