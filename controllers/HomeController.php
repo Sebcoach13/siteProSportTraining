@@ -15,11 +15,11 @@ class HomeController {
     }
 
     public function mentionsLegales() {
-        require_once __DIR__ . '/../views/mentions-legales.php';
+        require_once __DIR__ . '/../views/mentLegal.php';
     }
 
     public function politiqueConfidentialite() {
-        require_once __DIR__ . '/../views/politique-confidentialite.php';
+        require_once __DIR__ . '/../views/polConf.php';
     }
 
     public function notFound() {
