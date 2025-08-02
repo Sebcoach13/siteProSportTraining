@@ -56,5 +56,22 @@
             setTimeout(showSlides, 4000);
         }
     </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerBtn = document.querySelector('.hamburger-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (hamburgerBtn && navMenu) {
+            hamburgerBtn.addEventListener('click', () => {
+                const isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true' || false;
+                hamburgerBtn.setAttribute('aria-expanded', !isExpanded);
+                
+                // Basculer les classes pour l'animation CSS
+                hamburgerBtn.classList.toggle('is-open');
+                navMenu.classList.toggle('is-open');
+            });
+        }
+    });
+</script>
 </body>
 </html>

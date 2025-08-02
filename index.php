@@ -139,7 +139,7 @@ switch ($page) {
         $controller->mesReservations();
         break;
 
-    // Ces pages ne nécessitent pas de modifications de titre/description
+    // ne nécessitent pas de modifications de titre/description
     case 'api':
     case 'register':
     case 'logout':
@@ -149,8 +149,6 @@ switch ($page) {
     case 'confpaiement':
     case 'confirmation':
     case 'edit_profile':
-        // Les pages ci-dessus sont des pages de processus ou des API, pas des pages de contenu visibles.
-        // Elles peuvent conserver le titre et la description par défaut si le header y est inclus.
         if ($page === 'api') {
             $action = $_GET['action'] ?? '';
             $reservationController = new ReservationController();
