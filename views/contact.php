@@ -39,6 +39,5 @@
 
         <button type="submit" name="submit_contact">Envoyer</button>
         
-        <a href="index.php?page=agenda" class="button secondary-button">Réserver un appel/RDV</a>
     </form>
 </section>

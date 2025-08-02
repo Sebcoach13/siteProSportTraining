@@ -40,31 +40,3 @@ include_once __DIR__ . '/header.php';
 include_once __DIR__ . '/footer.php';
 ?>
 
-<style>
-    .legal-section {
-        max-width: 800px;
-        margin: 50px auto;
-        padding: 30px;
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        text-align: left;
-    }
-    .legal-section h2 {
-        color: var(--color-text-primary);
-        margin-bottom: 30px;
-        font-size: var(--font-size-title-secondary);
-        text-align: center;
-    }
-    .legal-section h3 {
-        color: var(--color-text-primary);
-        margin-top: 25px;
-        margin-bottom: 15px;
-        font-size: 1.5em;
-    }
-    .legal-section p {
-        color: var(--color-text-primary);
-        line-height: 1.6;
-        margin-bottom: 10px;
-    }
-</style>

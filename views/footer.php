@@ -1,4 +1,4 @@
-</div> </div>
+    </div> 
     <footer>
         <div class="footer-content">
             <div class="footer-block footer-logo-section">

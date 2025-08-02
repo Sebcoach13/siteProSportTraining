@@ -1,9 +1,3 @@
-<?php
-// views/agenda.php
-// Ce fichier ne doit plus inclure header.php ou footer.php,
-// car index.php les gérera globalement.
-?>
-
 <main>
     <section id="agenda-section">
         <h2>Notre Agenda</h2>
@@ -15,7 +9,7 @@
     </section>
 </main>
 
-<!-- Scripts JavaScript de FullCalendar (via CDN) -->
+<!-- Scripts JavaScript de FullCalendar  -->
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.13/index.global.min.js"></script>
 <!-- Script pour la localisation en français -->
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.13/locales-all.min.js"></script>
@@ -75,7 +69,7 @@
 
             selectable: true,
             select: function(info) {
-                // Cette fonction est intentionnellement vide pour éviter le prompt de création d'événement
+                
             },
 
             editable: true,

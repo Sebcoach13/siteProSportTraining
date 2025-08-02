@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
             enableTime: true,
             dateFormat: "Y-m-d H:i",
             minDate: "today",
-            // Assurez-vous d'inclure le CSS de Flatpickr dans votre header.php !
-            // <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         });
     }
 
