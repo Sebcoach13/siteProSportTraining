@@ -800,8 +800,7 @@ footer {
     margin: 0 auto 20px auto;
     text-align: center;
 }
-
-.footer-block.footer-logo-section {z
+.footer-block.footer-logo-section {
     display: flex;
     align-items: center;
     justify-content: flex-start;
