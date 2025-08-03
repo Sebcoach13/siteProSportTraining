@@ -16,7 +16,7 @@ include_once __DIR__ . '/header.php';
         </div>
 
         <div class="coaching-item">
-            <h3>Préparation Physique</h3>
+            <h3>Coach Remise en Forme/Préparation Physique</h3>
             <img src="/siteProSportTraining/assets/img/coachPrepa.png" alt="Image de Préparation Physique" class="coaching-photo">
             <p>Optimisez vos performances sportives avec un programme de préparation physique sur mesure, adapté à votre discipline.</p>
             <p class="coaching-price">Tarif : 80€ / séance</p>

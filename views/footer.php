@@ -21,9 +21,9 @@
                 <a href="https://www.facebook.com/sebastiencoachsportif13?locale=fr_FR" target="_blank" rel="noopener noreferrer">
                     <i class="fa-brands fa-facebook"></i>
                 </a>
-            </div>
+            </div>           
         </div>
-        <p>&copy; <?php echo date("Y"); ?> Pro Sport Training. Tous droits réservés.</p>
+        <p class="footer-content">&copy; <?php echo date("Y"); ?> Pro Sport Training. Tous droits réservés.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

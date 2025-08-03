@@ -215,10 +215,8 @@ main ul li h3 {
 
 nav ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
-    gap: 30px;
+    gap: 50px;
 }
 
 nav ul li a {
@@ -315,7 +313,7 @@ main {
 }
 
 .hamburger-line {
-  display: block;
+  display: none;
   width: 100%;
   height: 3px;
   background-color: var(--color-text-nav-button); 
@@ -324,7 +322,6 @@ main {
 
 /* Animation de la croix lorsque le menu est ouvert */
 
-/* Masque la ligne du milieu */
 .hamburger-btn.is-open .hamburger-line:nth-child(2) {
   opacity: 0;
 }
@@ -341,25 +338,22 @@ main {
   background-color: var(--color-background-primary);
 }
 
-/* Styles pour les écrans plus petits (jusqu'à 767px) */
-@media (max-width: 767px) {
-  
-  /* Masque la navigation complète et le titre */
+  /* Affiche le bouton hamburger */
+ @media (max-width: 767px) {
+   /* Masque la navigation complète et le titre */
   .nav-menu {
     display: none;
   }
-  .header-main-title {
-    display: none;
-  }
-
-  /* Affiche le bouton hamburger */
- @media (max-width: 767px) {
   .hamburger-btn {
     display: flex;
     position: fixed; 
     top: 20px; 
     right: 20px; 
     z-index: 1002; 
+  }
+
+  .hamburger-line {
+    display: block;
   }
 
   /* Le menu ouvert en tant que superposition */
@@ -411,6 +405,8 @@ main {
       height: 100px;
   }
 }
+
+
 
 /* FullCalendar (Agenda) */
 #calendar-container {
@@ -793,20 +789,20 @@ footer {
 }
 
 .footer-content {
+    
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    max-width: 1200px;
     margin: 0 auto 20px auto;
     text-align: center;
 }
 
-.footer-block.footer-logo-section {
+.footer-block.footer-logo-section {z
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 20px;
+    gap: 50px;
     background-color: var(--color-text-primary);
     color: var(--color-background-primary);
 }
@@ -821,10 +817,17 @@ footer {
     font-size: 2.4em;
     color: var(--color-accent-yellow);
 }
+.tagline {
+    margin: 0;
+    font-size: 2.4em;
+    color: var(--color-accent-yellow);
+    text-wrap: balance;
+    margin-left: -30px;
+}
 
 .footer-social-section {
-    flex-basis: 150px;
-    min-width: 150px;
+    flex-basis: 10px;
+    min-width: 10px;
     text-align: center;
 }
 
@@ -870,8 +873,6 @@ footer {
     background-color: var(--color-button-hover);
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
     .footer-content {
         flex-direction: column;
         align-items: center;
@@ -880,6 +881,10 @@ footer {
         min-width: 90%;
         margin-bottom: 20px;
     }
+
+/* Media Queries */
+@media (max-width: 768px) {
+
 
     .header-main-line {
         flex-direction: column;
