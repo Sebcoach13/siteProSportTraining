@@ -1,7 +1,7 @@
 <?php
 class CartController {
     private $services = [
-        1 => ['name' => 'Boxe', 'price' => 60, 'image' => '/siteProSportTraining/assets/img/boxe.png'],
+        1 => ['name' => 'Boxe', 'price' => 60, 'image' => '/siteProSportTraining/assets/img/coachBoxe.png'],
         2 => ['name' => 'Préparation Physique', 'price' => 60, 'image' => '/siteProSportTraining/assets/img/coachPrepa.png'],
         3 => ['name' => 'Musculation', 'price' => 60, 'image' => '/siteProSportTraining/assets/img/coachMuscu.png'],
     ];

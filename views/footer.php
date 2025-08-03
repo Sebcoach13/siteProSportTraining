@@ -3,7 +3,7 @@
         <div class="footer-content">
             <div class="footer-block footer-logo-section">
                 <a href="/siteProSportTraining/index.php?page=accueil"><img src="/siteProSportTraining/assets/img/logo2.png" alt="Logo Pro Sport Training" class="footer-logo"></a>
-                <p class="tagline">Pro Sport Training Coaching sportif personnalisé - Forme,<br> santé, performance</p>
+                <p class="tagline">Pro Sport Training Coaching sportif personnalisé - Forme, santé, performance</p>
             </div>
             <div class="footer-block footer-info-section">
                 <a href="tel:+33750152908"><i class="fas fa-phone"></i> +33 7 50 15 29 08</a> |

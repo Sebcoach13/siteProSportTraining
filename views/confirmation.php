@@ -4,7 +4,7 @@ include_once __DIR__ . '/header.php';
 
 <main>
     <section class="confirmation-section">
-        <h2>Confirmation de votre réservation</h2>
+        <h2>Confirmation de votre Payement</h2>
 
         <?php if (isset($message)): ?>
             <div class="alert alert-<?php echo htmlspecialchars($message['type']); ?>">
