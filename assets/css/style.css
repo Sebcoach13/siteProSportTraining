@@ -637,14 +637,14 @@ main {
 }
 .form-group .mail-photo {
     position: absolute;
-    top: 12px;
+    top: 35px;
     left: 10px;
     width: 34px; 
     height: 34px; 
 }
 .form-group .verrou-photo {
     position: absolute;
-    top: 12px;
+    top: 35px;
     left: 10px;
     width: 34px; 
     height: 34px; 
@@ -668,7 +668,7 @@ input[type="email"],
 input[type="password"],
 textarea {
     width: calc(100% - 20px); 
-    padding: 0 50px;
+    padding: 15px 40px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: var(--font-size-text-main);
@@ -686,7 +686,7 @@ textarea {
 .auth-container input[type="text"] {
     border: none;
     border-bottom: 1px solid #ccc;
-    background: transparent;
+    background-color: var(--color-text-nav-button);
     font-size: 1.1em;
     outline: none;
 }
@@ -744,18 +744,20 @@ textarea {
 .btn-register,
 .contact-form button[type="submit"],
 .edit-profile-form .btn {
-    display: block;
-    width: 100%;
-    padding: 15px;
+    display: inline-block;
+    padding: 10px 30px;
     margin-top: 20px;
     border: none;
     border-radius: 5px;
     font-size: var(--font-size-button);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-regular);
+    background: var(--color-button-background);
+    color: var(--color-text-nav-button);
     cursor: pointer;
     text-align: center;
     text-decoration: none;
     box-sizing: border-box;
+    transition: background-color;
 }
 
 .btn-login {
@@ -770,7 +772,7 @@ textarea {
 
 .btn-register {
     background: #f0f0f0;
-    color: var(--color-text-primary);
+    color: var(--color-text-nav-button);
     border: 1px solid #ccc;
     line-height: normal; 
 }
@@ -779,7 +781,7 @@ textarea {
     background: #e0e0e0;
 }
 .cart-item img {
-  border-radius: 50px; /* arrondit les coins de 10 pixels */
+  border-radius: 50px; 
 }
 
 /* Footer */

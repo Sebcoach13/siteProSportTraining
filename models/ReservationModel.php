@@ -19,10 +19,10 @@ class ReservationModel {
 
         $sql = "
             INSERT INTO reservations (
-                user_id, coach_id, service_type, reservation_date, reservation_time, end_time,
+                user_id, coach_id, service_type, reservation_date, start_time, end_time,
                 duration_minutes, price, status, payment_status, created_at, updated_at
             ) VALUES (
-                :user_id, :coach_id, :service_type, :reservation_date, :reservation_time, :end_time,
+                :user_id, :coach_id, :service_type, :reservation_date, :start_time, :end_time,
                 :duration_minutes, :price, :status, :payment_status, NOW(), NOW()
             )
         ";
@@ -33,7 +33,7 @@ class ReservationModel {
             $stmt->bindParam(':coach_id', $coachId, PDO::PARAM_INT);
             $stmt->bindParam(':service_type', $serviceType, PDO::PARAM_STR);
             $stmt->bindParam(':reservation_date', $date, PDO::PARAM_STR);
-            $stmt->bindParam(':reservation_time', $time, PDO::PARAM_STR);
+            $stmt->bindParam(':start_time', $time, PDO::PARAM_STR);
             $stmt->bindParam(':end_time', $endTime, PDO::PARAM_STR);
             $stmt->bindParam(':duration_minutes', $durationMinutes, PDO::PARAM_INT);
             $stmt->bindParam(':price', $price, PDO::PARAM_STR);
@@ -48,7 +48,7 @@ class ReservationModel {
     }
 
     public function getReservedSlots() {
-        $sql = "SELECT reservation_date, reservation_time, service_type FROM reservations WHERE status IN ('confirmed', 'pending')";
+        $sql = "SELECT reservation_date, start_time, service_type FROM reservations WHERE status IN ('confirmed', 'pending')";
         try {
             $stmt = $this->pdo->query($sql);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -59,7 +59,7 @@ class ReservationModel {
     }
 
     public function isSlotReserved($date, $time, $serviceType) {
-        $sql = "SELECT COUNT(*) FROM reservations WHERE reservation_date = :date AND reservation_time = :time AND service_type = :service_type AND status IN ('confirmed', 'pending')";
+        $sql = "SELECT COUNT(*) FROM reservations WHERE reservation_date = :date AND start_time = :time AND service_type = :service_type AND status IN ('confirmed', 'pending')";
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindParam(':date', $date);
@@ -97,7 +97,7 @@ class ReservationModel {
     }
 
     public function getUserReservations($userId) {
-        $sql = "SELECT * FROM reservations WHERE user_id = :user_id ORDER BY reservation_date DESC, reservation_time ASC";
+        $sql = "SELECT * FROM reservations WHERE user_id = :user_id ORDER BY reservation_date DESC, start_time ASC";
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindParam(':user_id', $userId);
