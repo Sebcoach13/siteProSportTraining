@@ -1,20 +1,27 @@
 <?php
 // views/mon_compte.php
-include_once __DIR__ . '/header.php';
 
+// Vérifie si l'utilisateur est connecté. Si ce n'est pas le cas, le redirige vers la page de connexion.
 $isLoggedIn = isset($_SESSION['user_id']);
 if (!$isLoggedIn) {
     header('Location: /siteProSportTraining/index.php?page=connection&error=Veuillez vous connecter pour accéder à cette page.');
     exit();
 }
 
+// Récupère les informations de l'utilisateur depuis la session
+// Utilise l'opérateur de fusion null (??) pour éviter les erreurs si une variable n'existe pas
 $firstName = $_SESSION['user_first_name'] ?? 'Utilisateur';
 $lastName = $_SESSION['user_last_name'] ?? '';
 $email = $_SESSION['user_email'] ?? '';
-$role = $_SESSION['user_role'] ?? 'Client'; 
+$role = $_SESSION['user_role'] ?? 'Client';
 
 ?>
 
+<!--
+    Le header et le footer ne sont pas inclus ici, car ils sont déjà inclus
+    par le routeur principal (index.php) pour chaque page.
+    Ce fichier ne doit contenir que le contenu de la page "Mon Compte".
+-->
 <main class="mon-compte-page">
     <section class="user-dashboard">
         <h1>Bienvenue, <?php echo htmlspecialchars($firstName); ?> !</h1>
@@ -45,9 +52,3 @@ $role = $_SESSION['user_role'] ?? 'Client';
         </div>
     </section>
 </main>
-
-<?php
-// Inclure le footer
-include_once __DIR__ . '/footer.php';
-?>
-

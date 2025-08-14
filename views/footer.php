@@ -10,7 +10,8 @@
                 <a href="mailto:seb-dac67@hotmail.fr"><i class="fas fa-envelope"></i> seb-dac67@hotmail.fr</a>
                 <p>
                     <a href="/siteProSportTraining/index.php?page=mentions-legales">Mentions Légales</a> | 
-                    <a href="/siteProSportTraining/index.php?page=politique-confidentialite">Politique de Confidentialité</a>
+                    <a href="/siteProSportTraining/index.php?page=politique-confidentialite">Politique de Confidentialité</a> | 
+                    <a href="/siteProSportTraining/index.php?page=cgv">CGV</a>
                 </p>
             </div>
             <div class="footer-block footer-social-section">

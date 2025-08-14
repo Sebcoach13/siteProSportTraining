@@ -4,6 +4,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// 1. Inclure le fichier de connexion à la base de données
+require_once __DIR__ . '/../config/config.php';
+// 2. Inclure le modèle d'utilisateur
 require_once __DIR__ . '/../models/UserModel.php';
 
 $error = '';
@@ -26,8 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_register'])) {
         $error = "Le mot de passe doit contenir au moins 6 caractères.";
     } else {
         $password_hashed = password_hash($password, PASSWORD_DEFAULT);
-
-        $userModel = new UserModel();
+        
+        // Instancier UserModel en passant l'objet PDO à son constructeur
+        $userModel = new UserModel($pdo);
 
         if ($userModel->registerUser($prenom, $nom, $email, $password_hashed)) {
             $success = "Inscription réussie ! Vous pouvez maintenant vous connecter.";
@@ -37,8 +41,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_register'])) {
             $error = "L'inscription a échoué. Cet email est peut-être déjà utilisé.";
         }
     }
-    header('Location: /siteProSportTraining/views/inscription.php?error=' . urlencode($error));
-    exit();
+    
+    if (!empty($error)) {
+        header('Location: /siteProSportTraining/views/inscription.php?error=' . urlencode($error));
+        exit();
+    }
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_login'])) {
@@ -48,7 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_login'])) {
     if (empty($email) || empty($password)) {
         $error = "Veuillez saisir votre email et votre mot de passe.";
     } else {
-        $userModel = new UserModel();
+        // Instancier UserModel en passant l'objet PDO à son constructeur
+        $userModel = new UserModel($pdo);
         $user = $userModel->loginUser($email, $password);
 
         if ($user) {

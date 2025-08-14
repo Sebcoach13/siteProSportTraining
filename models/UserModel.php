@@ -2,8 +2,7 @@
 class UserModel {
     private $pdo;
 
-    public function __construct() {
-        global $pdo;
+    public function __construct($pdo) {
         $this->pdo = $pdo;
     }
 
@@ -34,6 +33,16 @@ class UserModel {
             error_log("Erreur lors de l'inscription de l'utilisateur: " . $e->getMessage());
             return false;
         }
+    }
+
+    public function loginUser($email, $password) {
+        $user = $this->getUserByEmail($email);
+
+        if ($user && password_verify($password, $user['password'])) {
+            return $user;
+        }
+
+        return false;
     }
 
     public function getUserByEmail($email) {
