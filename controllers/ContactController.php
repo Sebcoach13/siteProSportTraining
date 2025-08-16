@@ -2,12 +2,19 @@
 // On inclut les classes PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
-// On charge les fichiers de PHPMailer
-// Le chemin d'accès a été mis à jour pour correspondre à la structure de dossiers actuelle
-require_once __DIR__ . '/../vendor/phpmailer/Exception.php';
-require_once __DIR__ . '/../vendor/phpmailer/PHPMailer.php';
-require_once __DIR__ . '/../vendor/phpmailer/SMTP.php';
+// Le chemin d'accès a été mis à jour pour correspondre à la nouvelle structure
+// Notez que __DIR__ représente le dossier actuel (controllers)
+// ../ remonte d'un niveau pour accéder au dossier racine du projet
+// /vendor/phpmailer/src/ est le chemin vers les fichiers de PHPMailer
+require_once __DIR__ . '/../vendor/phpmailer/src/Exception.php';
+require_once __DIR__ . '/../vendor/phpmailer/src/PHPMailer.php';
+require_once __DIR__ . '/../vendor/phpmailer/src/SMTP.php';
+
+// On inclut manuellement la classe ContactModel
+// Le chemin d'accès est de nouveau mis à jour en fonction de la nouvelle structure
+require_once __DIR__ . '/../models/ContactModel.php';
 
 class ContactController {
 
