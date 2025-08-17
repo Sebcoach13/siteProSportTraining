@@ -54,12 +54,12 @@
 
                 if (!serviceId) {
                     alert('Veuillez sélectionner une prestation de coaching avant de choisir une date. Vous allez être redirigé vers la page Coaching.');
-                    window.location.href = '/siteProSportTraining/index.php?page=coaching';
+                    window.location.href = '/index.php?page=coaching';
                     return;
                 }
 
                 if (confirm('Voulez-vous réserver la date du ' + info.dateStr + ' pour la prestation sélectionnée ?')) {
-                    window.location.href = '/siteProSportTraining/index.php?page=panier&date=' + info.dateStr + '&service_id=' + serviceId;
+                    window.location.href = '/index.php?page=panier&date=' + info.dateStr + '&service_id=' + serviceId;
                 }
             },
 

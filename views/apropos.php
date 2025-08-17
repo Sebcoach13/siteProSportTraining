@@ -29,8 +29,8 @@ include_once __DIR__ . '/header.php';
         </div>
 
         <div class="coach-section">
-            <img src="/siteProSportTraining/assets/img/photo.png" alt="Photo du coach" class="coach-photo">
-            <a href="/siteProSportTraining/index.php?page=contact" class="btn contact-coach-btn">Contacter moi</a>
+            <img src="/assets/img/photo.png" alt="Photo du coach" class="coach-photo">
+            <a href="/index.php?page=contact" class="btn contact-coach-btn">Contacter moi</a>
         </div>
     </section>
 </main>

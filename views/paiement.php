@@ -8,7 +8,7 @@ include_once __DIR__ . '/header.php';
         <p>Veuillez remplir les informations de paiement pour confirmer votre réservation.</p>
 
         <?php if (empty($cartItems)): ?>
-            <p class="error-message">Votre panier est vide. <a href="/siteProSportTraining/index.php?page=coaching">Retour aux prestations</a></p>
+            <p class="error-message">Votre panier est vide. <a href="/index.php?page=coaching">Retour aux prestations</a></p>
         <?php else: ?>
             <div class="paiement-summary">
                 <h3>Récapitulatif de votre commande :</h3>
@@ -72,7 +72,7 @@ include_once __DIR__ . '/footer.php';
             cardErrors.style.display = 'none';
 
             try {
-                const response = await fetch('/siteProSportTraining/index.php?page=paiement_process', {
+                const response = await fetch(/index.php?page=paiement_process', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -83,7 +83,7 @@ include_once __DIR__ . '/footer.php';
                 const result = await response.json();
 
                 if (result.success) {
-                    window.location.href = '/siteProSportTraining/index.php?page=confpaiement';
+                    window.location.href = '/index.php?page=confpaiement';
                 } else {
                     cardErrors.textContent = result.message || 'Une erreur est survenue lors du paiement.';
                     cardErrors.style.display = 'block';

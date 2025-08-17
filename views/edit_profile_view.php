@@ -13,7 +13,7 @@ $userEmail = $_SESSION['user_email'] ?? '';
         <h2>Modifier mon profil</h2>
         <p>Mettez à jour vos informations personnelles ci-dessous.</p>
 
-        <form action="/siteProSportTraining/index.php?page=edit_profile" method="POST" class="edit-profile-form">
+        <form action="/index.php?page=edit_profile" method="POST" class="edit-profile-form">
             <div class="form-group">
                 <label for="firstname">Prénom :</label>
                 <input type="text" id="firstname" name="firstname" value="<?php echo htmlspecialchars($userFirstName); ?>" required>
@@ -36,7 +36,7 @@ $userEmail = $_SESSION['user_email'] ?? '';
             </div>
             
             <button type="submit" class="btn">Enregistrer les modifications</button>
-            <a href="/siteProSportTraining/index.php?page=moncompte" class="btn secondary-button">Annuler</a>
+            <a href="/index.php?page=moncompte" class="btn secondary-button">Annuler</a>
         </form>
     </section>
 </main>

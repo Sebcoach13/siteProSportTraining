@@ -13,7 +13,7 @@ include_once __DIR__ . '/header.php';
         <?php endif; ?>
 
         <?php if (empty($cartItems)): ?>
-            <p>Votre panier est vide. <a href="/siteProSportTraining/index.php?page=coaching">Retour aux prestations</a></p>
+            <p>Votre panier est vide. <a href="/index.php?page=coaching">Retour aux prestations</a></p>
         <?php else: ?>
             <div class="cart-items">
                 <?php foreach ($cartItems as $itemKey => $item): ?>
@@ -23,7 +23,7 @@ include_once __DIR__ . '/header.php';
                             <h3><?php echo htmlspecialchars($item['name']); ?></h3>
                             <p>Date de réservation: <?php echo htmlspecialchars($item['date']); ?></p>
                             <p>Prix: <?php echo htmlspecialchars(number_format($item['price'], 2, ',', ' ')); ?> €</p>
-                            <a href="/siteProSportTraining/index.php?page=panier&action=remove&item_key=<?php echo htmlspecialchars($itemKey); ?>" class="remove-item-btn">Supprimer</a>
+                            <a href="/index.php?page=panier&action=remove&item_key=<?php echo htmlspecialchars($itemKey); ?>" class="remove-item-btn">Supprimer</a>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -31,7 +31,7 @@ include_once __DIR__ . '/header.php';
 
             <div class="cart-summary">
                 <h3>Total du panier: <?php echo htmlspecialchars(number_format($total, 2, ',', ' ')); ?> €</h3>
-                <a href="/siteProSportTraining/index.php?page=paiement" class="btn">Confirmer le panier et passer au paiement</a>
+                <a href="/index.php?page=paiement" class="btn">Confirmer le panier et passer au paiement</a>
             </div>
         <?php endif; ?>
     </section>

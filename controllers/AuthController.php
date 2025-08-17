@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_register'])) {
 
         if ($userModel->registerUser($prenom, $nom, $email, $password_hashed)) {
             $success = "Inscription réussie ! Vous pouvez maintenant vous connecter.";
-            header('Location: /siteProSportTraining/views/connection.php?success=' . urlencode($success));
+            header('Location: /views/connection.php?success=' . urlencode($success));
             exit();
         } else {
             $error = "L'inscription a échoué. Cet email est peut-être déjà utilisé.";
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_register'])) {
     }
     
     if (!empty($error)) {
-        header('Location: /siteProSportTraining/views/inscription.php?error=' . urlencode($error));
+        header('Location: /views/inscription.php?error=' . urlencode($error));
         exit();
     }
 }
@@ -65,13 +65,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_login'])) {
             $_SESSION['user_email'] = $user['email'];
             $_SESSION['user_prenom'] = $user['prenom'];
             $_SESSION['user_nom'] = $user['nom'];
-            header('Location: /siteProSportTraining/views/accueil.php');
+            header('Location: /views/accueil.php');
             exit();
         } else {
             $error = "Email ou mot de passe incorrect.";
         }
     }
-    header('Location: /siteProSportTraining/views/connection.php?error=' . urlencode($error));
+    header('Location: /views/connection.php?error=' . urlencode($error));
     exit();
 }
 

@@ -2,16 +2,16 @@
     <footer>
         <div class="footer-content">
             <div class="footer-block footer-logo-section">
-                <a href="/siteProSportTraining/index.php?page=accueil"><img src="/siteProSportTraining/assets/img/logo2.png" alt="Logo Pro Sport Training" class="footer-logo"></a>
+                <a href="/index.php?page=accueil"><img src="/siteProSportTraining/assets/img/logo2.png" alt="Logo Pro Sport Training" class="footer-logo"></a>
                 <p class="tagline">Pro Sport Training Coaching sportif personnalisé - Forme, santé, performance</p>
             </div>
             <div class="footer-block footer-info-section">
                 <a href="tel:+33750152908"><i class="fas fa-phone"></i> +33 7 50 15 29 08</a> |
                 <a href="mailto:seb-dac67@hotmail.fr"><i class="fas fa-envelope"></i> seb-dac67@hotmail.fr</a>
                 <p>
-                    <a href="/siteProSportTraining/index.php?page=mentions-legales">Mentions Légales</a> | 
-                    <a href="/siteProSportTraining/index.php?page=politique-confidentialite">Politique de Confidentialité</a> | 
-                    <a href="/siteProSportTraining/index.php?page=cgv">CGV</a>
+                    <a href="/index.php?page=mentions-legales">Mentions Légales</a> | 
+                    <a href="/index.php?page=politique-confidentialite">Politique de Confidentialité</a> | 
+                    <a href="/index.php?page=cgv">CGV</a>
                 </p>
             </div>
             <div class="footer-block footer-social-section">
@@ -34,7 +34,7 @@
         });
     </script>
     
-    <script src="/siteProSportTraining/assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

@@ -1,22 +1,22 @@
 <div class="slideshow-container">
 
     <div class="mySlides fade">
-        <img src="/siteProSportTraining/assets/img/boxe.png" style="width:100%" alt="Image 1 du carrousel : boxe pour tout niveau">
+        <img src="/assets/img/boxe.png" style="width:100%" alt="Image 1 du carrousel : boxe pour tout niveau">
         <div class="text">boxe pour tout niveau</div>
     </div>
 
     <div class="mySlides fade">
-        <img src="/siteProSportTraining/assets/img/force.jpg" style="width:100%" alt="Image 2 du carrousel : sport de force">
+        <img src="/assets/img/force.jpg" style="width:100%" alt="Image 2 du carrousel : sport de force">
         <div class="text">sport de force</div>
     </div>
 
     <div class="mySlides fade">
-        <img src="/siteProSportTraining/assets/img/streatch.jpg" style="width:100%" alt="Image 3 du carrousel : remise en forme">
+        <img src="/assets/img/streatch.jpg" style="width:100%" alt="Image 3 du carrousel : remise en forme">
         <div class="text">remise en forme </div>
     </div>
     
     <div class="mySlides fade">
-        <img src="/siteProSportTraining/assets/img/prepaP.jpg" style="width:100%" alt="Image 4 du carrousel : préparation physique"> 
+        <img src="/assets/img/prepaP.jpg" style="width:100%" alt="Image 4 du carrousel : préparation physique"> 
         <div class="text">Preparation physique</div>
     </div>
 
@@ -56,6 +56,6 @@
     <h2>📞 Envie de commencer ?</h2>
     <p>Prenez rendez-vous pour un premier échange gratuit. Nous définirons ensemble vos objectifs, votre emploi du temps, et la meilleure manière d’y arriver.</p>
     <p>
-        <a href="/siteProSportTraining/index.php?page=contact" class="btn">Me contacter</a>
+        <a href="/index.php?page=contact" class="btn">Me contacter</a>
     </p>
 </main>

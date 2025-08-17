@@ -5,15 +5,15 @@
     // Afficher les messages de succès ou d'erreur depuis la session
     if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message'])) {
         echo '<p style="color: green;">' . htmlspecialchars($_SESSION['success_message']) . '</p>';
-        unset($_SESSION['success_message']); // Supprimer le message après l'affichage
+        unset($_SESSION['success_message']); 
     }
     if (isset($_SESSION['error_message']) && !empty($_SESSION['error_message'])) {
         echo '<p style="color: red;">' . htmlspecialchars($_SESSION['error_message']) . '</p>';
-        unset($_SESSION['error_message']); // Supprimer le message après l'affichage
+        unset($_SESSION['error_message']); 
     }
     ?>
 
-    <form action="/siteProSportTraining/index.php?page=contact_submit" method="POST" class="contact-form">
+    <form action="/index.php?page=contact_submit" method="POST" class="contact-form">
         <div class="form-group">
             <label for="nom">Nom :</label>
             <input type="text" id="nom" name="nom" value="<?php echo htmlspecialchars($_POST['nom'] ?? ''); ?>" required>

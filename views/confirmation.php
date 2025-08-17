@@ -17,8 +17,8 @@ include_once __DIR__ . '/header.php';
         <?php endif; ?>
         
         <p>Merci pour votre confiance. Nous sommes impatients de vous accompagner !</p>
-        <a href="/siteProSportTraining/index.php?page=accueil" class="btn">Retour à l'accueil</a>
-        <a href="/siteProSportTraining/index.php?page=mesreservations" class="btn secondary-button">Voir mes réservations</a>
+        <a href="/index.php?page=accueil" class="btn">Retour à l'accueil</a>
+        <a href="/index.php?page=mesreservations" class="btn secondary-button">Voir mes réservations</a>
     </section>
 </main>
 

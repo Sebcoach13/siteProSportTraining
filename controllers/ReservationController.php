@@ -11,7 +11,7 @@ class ReservationController {
 
         if (empty($cartItems)) {
             $_SESSION['message'] = ['type' => 'error', 'text' => 'Votre panier est vide. Veuillez ajouter des articles avant de passer au paiement.'];
-            header('Location: /siteProSportTraining/index.php?page=panier');
+            header('Location: /index.php?page=panier');
             exit();
         }
 

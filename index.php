@@ -49,7 +49,7 @@ $protectedPages = ['agenda', 'panier', 'paiement', 'confirmation', 'confpaiement
 if (in_array($page, $protectedPages) && !$isLoggedIn) {
     $_SESSION['redirect_after_login'] = $page;
     $_SESSION['redirect_after_login_params'] = $_GET;
-    header('Location: /siteProSportTraining/index.php?page=connection&error=Vous devez être connecté ou inscrit pour accéder à cette page.');
+    header('Location: /index.php?page=connection&error=Vous devez être connecté ou inscrit pour accéder à cette page.');
     exit();
 }
 
@@ -122,7 +122,7 @@ switch ($page) {
             $controller = new UserController($pdo);
             $controller->register();
         } else {
-            header('Location: /siteProSportTraining/index.php?page=inscription');
+            header('Location: /index.php?page=inscription');
             exit();
         }
         break;

@@ -24,7 +24,7 @@ include_once __DIR__ . '/header.php';
             </div>
         <?php endif; ?>
 
-        <a href="/siteProSportTraining/index.php?page=moncompte" class="btn secondary-button">Retour au compte</a>
+        <a href="/index.php?page=moncompte" class="btn secondary-button">Retour au compte</a>
     </section>
 </main>
 
