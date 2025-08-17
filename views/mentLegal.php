@@ -53,7 +53,7 @@ include_once __DIR__ . '/header.php';
 
         <div class="mb-6">
             <h3 class="text-xl font-semibold text-gray-700 mb-2">6. Traitement des données personnelles</h3>
-            <p>Voir la <a href="/siteProSportTraining/index.php?page=politique-confidentialite" class="text-blue-600 hover:underline">Politique de confidentialité</a> du site pour plus d'informations sur la collecte, l'utilisation et la protection de vos données.</p>
+            <p>Voir la <a href="/index.php?page=politique-confidentialite" class="text-blue-600 hover:underline">Politique de confidentialité</a> du site pour plus d'informations sur la collecte, l'utilisation et la protection de vos données.</p>
         </div>
         
         <hr class="my-6 border-gray-300">

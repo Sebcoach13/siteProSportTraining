@@ -2,7 +2,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-block footer-logo-section">
-                <a href="/index.php?page=accueil"><img src="/siteProSportTraining/assets/img/logo2.png" alt="Logo Pro Sport Training" class="footer-logo"></a>
+                <a href="/index.php?page=accueil"><img src="/assets/img/logo2.png" alt="Logo Pro Sport Training" class="footer-logo"></a>
                 <p class="tagline">Pro Sport Training Coaching sportif personnalisé - Forme, santé, performance</p>
             </div>
             <div class="footer-block footer-info-section">

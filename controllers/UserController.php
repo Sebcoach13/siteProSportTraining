@@ -42,7 +42,7 @@ class UserController {
                         if (isset($_SESSION['redirect_after_login_params'])) {
                             $params = http_build_query($_SESSION['redirect_after_login_params']);
                             unset($_SESSION['redirect_after_login_params']);
-                            header('Location: /siteProSportTraining/index.php?page=' . $redirectPage . '&' . $params);
+                            header('Location: /index.php?page=' . $redirectPage . '&' . $params);
                             exit();
                         }
                     } else {
@@ -50,7 +50,7 @@ class UserController {
                         $redirectPage = 'moncompte';
                     }
                     
-                    header('Location: /siteProSportTraining/index.php?page=' . $redirectPage);
+                    header('Location: /index.php?page=' . $redirectPage);
                     exit();
                 } else {
                     $error = "Email ou mot de passe incorrect.";
@@ -59,7 +59,7 @@ class UserController {
             
             // Redirection en cas d'erreur de connexion via le routeur (index.php)
             $_SESSION['error_message'] = $error;
-            header('Location: /siteProSportTraining/index.php?page=connection');
+            header('Location: /index.php?page=connection');
             exit();
         }
 
@@ -92,7 +92,7 @@ class UserController {
                 if ($this->userModel->registerUser($prenom, $nom, $email, $password_hashed)) {
                     $success = "Inscription réussie ! Vous pouvez maintenant vous connecter.";
                     $_SESSION['success_message'] = $success;
-                    header('Location: /siteProSportTraining/index.php?page=connection');
+                    header('Location: /index.php?page=connection');
                     exit();
                 } else {
                     $error = "L'inscription a échoué. Cet email est peut-être déjà utilisé.";
@@ -101,7 +101,7 @@ class UserController {
 
             if (!empty($error)) {
                 $_SESSION['error_message'] = $error;
-                header('Location: /siteProSportTraining/index.php?page=inscription');
+                header('Location: /index.php?page=inscription');
                 exit();
             }
         }
@@ -125,7 +125,7 @@ class UserController {
         }
         session_destroy();
         setcookie('remember_me_token', '', time() - 3600, '/');
-        header('Location: /siteProSportTraining/index.php?page=accueil');
+        header('Location: /index.php?page=accueil');
         exit();
     }
     

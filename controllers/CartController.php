@@ -1,9 +1,9 @@
 <?php
 class CartController {
     private $services = [
-        1 => ['name' => 'Boxe', 'price' => 60, 'image' => '/siteProSportTraining/assets/img/coachBoxe.png'],
-        2 => ['name' => 'Préparation Physique', 'price' => 60, 'image' => '/siteProSportTraining/assets/img/coachPrepa.png'],
-        3 => ['name' => 'Musculation', 'price' => 60, 'image' => '/siteProSportTraining/assets/img/coachMuscu.png'],
+        1 => ['name' => 'Boxe', 'price' => 60, 'image' => '/assets/img/coachBoxe.png'],
+        2 => ['name' => 'Préparation Physique', 'price' => 60, 'image' => '/assets/img/coachPrepa.png'],
+        3 => ['name' => 'Musculation', 'price' => 60, 'image' => '/assets/img/coachMuscu.png'],
     ];
 
     public function index() {
@@ -38,7 +38,7 @@ class CartController {
                     ];
                     error_log("Article ajouté au panier: " . $service['name'] . " pour la date " . $date);
                    
-                    header('Location: /siteProSportTraining/index.php?page=panier');
+                    header('Location: /index.php?page=panier');
                     exit();
                 } else {
                     error_log("Article déjà présent dans le panier pour cette date.");
@@ -58,7 +58,7 @@ class CartController {
             } else {
                 error_log("ERREUR: Article à supprimer non trouvé dans le panier: " . $itemKeyToRemove);
             }
-            header('Location: /siteProSportTraining/index.php?page=panier');
+            header('Location: /index.php?page=panier');
             exit();
         }
 

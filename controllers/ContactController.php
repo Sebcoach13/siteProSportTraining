@@ -101,7 +101,7 @@ class ContactController {
             }
         }
         
-        header('Location: /siteProSportTraining/index.php?page=contact');
+        header('Location: /index.php?page=contact');
         exit();
     }
 }
