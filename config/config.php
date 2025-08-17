@@ -1,9 +1,9 @@
 <?php
 
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'pro_sport_training_db'); 
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_HOST', 'mysql-messites.alwaysdata.net');
+define('DB_NAME', 'messites_pro_sport_training_db'); 
+define('DB_USER', 'messites');
+define('DB_PASS', 'Llink1973');
 
 try {
     $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4";
