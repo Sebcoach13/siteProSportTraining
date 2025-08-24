@@ -1,0 +1,975 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Variables CSS */
+:root {
+    --color-text-primary: #000000;
+    --color-text-nav-button: #FFFEFE;
+    --color-background-primary: #DEE5F6;
+    --color-button-background: #299BE8;
+    --color-button-hover: #1a7bbd;
+    --color-accent-yellow: #FFD700;
+    --color-background-light-grey: #f5f5f5;
+
+    --font-family-inter: 'Inter', sans-serif;
+    --font-weight-regular: 400;
+    --font-weight-semi-bold: 600;
+    --font-weight-bold: bold;
+    --font-style-italic: italic;
+
+    --font-size-text-main: 1em;
+    --font-size-title-main: 50px;
+    --font-size-title-secondary: 2em;
+    --font-size-nav-link: 1em;
+    --font-size-logo-text-bottom: 0.9em;
+    --font-size-logo-tagline: 0.7em;
+    --font-size-button: 1em;
+    --font-size-footer: 1em;
+}
+
+/* Styles globaux */
+body {
+    font-family: var(--font-family-inter);
+    margin: 0;
+    background: var(--color-background-primary);
+    color: var(--color-text-primary); /
+}
+
+a {
+    color: var(--color-text-nav-button);
+    text-decoration: none;
+}
+
+/* Styles communs pour les sections de type "carte" */
+.card-section {
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: left; 
+}
+
+/* Styles pour les titres des sections */
+h2 {
+    font-weight: var(--font-weight-bold);
+    font-style: var(--font-style-italic);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-title-secondary);
+    margin-bottom: 20px;
+    text-align: center; 
+}
+
+/* Styles pour les paragraphes dans les sections principales */
+main p {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-text-main);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Styles pour les listes dans les sections principales */
+main ul {
+    list-style: disc inside;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+main ul li {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-text-main);
+    margin-bottom: 10px;
+}
+
+main ul li h3 {
+    color: var(--color-text-primary);
+    font-size: 1.2em;
+}
+
+/* Boutons génériques */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-button-background);
+    color: var(--color-text-nav-button);
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-size-button);
+    font-weight: var(--font-weight-regular);
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--color-button-hover);
+}
+
+.secondary-button {
+    background-color: #6c757d;
+    color: white;
+}
+.secondary-button:hover {
+    background-color: #5a6268;
+}
+
+.danger-button {
+    background-color: #dc3545;
+    color: white;
+}
+.danger-button:hover {
+    background-color: #c82333;
+}
+
+/* Styles pour les messages d'alerte */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-align: left;
+}
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+.alert-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.error-message { /* Utilisé pour les erreurs JS/Stripe */
+    color: red;
+    background-color: #ffe6e6;
+    border: 1px solid red;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+.success-message {
+    color: green;
+    background-color: #e6ffe6;
+    border: 1px solid green;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Header */
+.header-main-line {
+    background-color: var(--color-text-primary);
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0px solid #e0e7ff;
+}
+
+.header-logo-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.header-logo {
+    height: 150px;
+    width: auto;
+}
+
+.logo-text-bottom {
+    font-family: var(--font-family-inter);
+    color: var(--color-accent-yellow);
+    font-size: var(--font-size-logo-text-bottom);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.logo-tagline {
+    font-family: var(--font-family-inter);
+    color: var(--color-text-nav-button);
+    font-size: var(--font-size-logo-tagline);
+    white-space: nowrap;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.header-main-title {
+    font-family: var(--font-family-inter);
+    color: var(--color-accent-yellow);
+    font-size: var(--font-size-title-main);
+    font-style: var(--font-style-italic);
+    font-weight: var(--font-weight-semi-bold);
+    margin-bottom: 40px;
+    margin-top: 5px;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+}
+
+nav ul li a {
+    font-family: var(--font-family-inter);
+    color: var(--color-text-nav-button);
+    font-weight: var(--font-weight-semi-bold);
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--color-background-primary);
+}
+
+
+/* Main Content Area */
+main {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 30px; /* Padding pour la zone principale */
+    background-color: var(--color-background-primary);
+}
+
+/* Slideshow (Accueil) */
+.slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+}
+
+.mySlides {
+    display: none;
+}
+.mySlides img {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+    display: block;
+}
+
+.text {
+    color: #f2f2f2;
+    font-size: 3em;
+    padding: 20px 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    font-weight: var(--font-weight-bold);
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/* Styles du bouton hamburger (pour les mobiles) */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  padding: 0;
+  z-index: 1001; 
+}
+
+.hamburger-line {
+  display: none;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-text-nav-button); 
+  transition: all 0.3s ease-in-out;
+}
+
+/* Animation de la croix lorsque le menu est ouvert */
+
+.hamburger-btn.is-open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+/* Transforme la ligne du haut pour former la croix */
+.hamburger-btn.is-open .hamburger-line:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+  background-color: var(--color-background-primary);
+}
+
+/* Transforme la ligne du bas pour former la croix */
+.hamburger-btn.is-open .hamburger-line:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+  background-color: var(--color-background-primary);
+}
+
+  /* Affiche le bouton hamburger */
+ @media (max-width: 767px) {
+   /* Masque la navigation complète et le titre */
+  .nav-menu {
+    display: none;
+  }
+  .hamburger-btn {
+    display: flex;
+    position: fixed; 
+    top: 20px; 
+    right: 20px; 
+    z-index: 1002; 
+  }
+
+  .hamburger-line {
+    display: block;
+  }
+
+  /* Le menu ouvert en tant que superposition */
+  .nav-menu.is-open {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-text-primary); /* Fond noir */
+    z-index: 1000;
+  }
+
+  /* C'est la règle cruciale pour forcer les liens à s'afficher en colonne */
+  .nav-menu ul {
+    display: flex;
+    flex-direction: column; /* Force les liens à s'empiler verticalement */
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Style des liens dans le menu ouvert */
+  .nav-menu.is-open ul li a {
+    color: var(--color-text-nav-button); /* Liens blancs sur fond noir */
+    font-size: 1.5em;
+    padding: 15px;
+    display: block;
+    text-transform: uppercase;
+  }
+  
+  /* Ajustements pour le header sur mobile */
+  .header-main-line {
+    padding: 10px 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; /* ou fixed, selon l'effet désiré */
+    top: 0;
+    z-index: 100;
+  }
+  
+  .header-logo {
+      height: 100px;
+  }
+}
+
+
+
+/* FullCalendar (Agenda) */
+#calendar-container {
+    width: 90%;
+    max-width: 1000px;
+    background-color: var(--color-background-light-grey); 
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    box-sizing: border-box;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fc .fc-button {
+    background-color: var(--color-button-background) !important;
+    color: var(--color-text-nav-button) !important;
+    border-radius: 8px !important;
+    border: none !important;
+    padding: 8px 15px !important;
+    margin: 0 5px !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+}
+.fc .fc-button:hover {
+    background-color: var(--color-button-hover) !important;
+}
+.fc .fc-toolbar-title {
+    font-size: 1.8em !important;
+    color: var(--color-text-primary) !important;
+    font-weight: var(--font-weight-semi-bold) !important;
+}
+.fc-daygrid-event {
+    border-radius: 6px !important;
+    padding: 3px 5px !important;
+    font-size: 0.9em !important;
+    color: var(--color-text-primary) !important; 
+}
+.fc-event-main {
+    color: #fff !important;
+}
+
+/* Styles pour les numéros de jour du calendrier */
+#calendar-container .fc-daygrid-day-number {
+    color: var(--color-text-primary) !important;
+}
+
+#calendar-container .fc-day-other .fc-daygrid-day-number {
+    color: var(--color-text-primary) !important;
+    opacity: 0.6;
+}
+
+/* Section Coaching */
+.coaching-section {
+    background: var(--color-background-primary);
+    padding: 30px;
+    margin-bottom: 1px;
+    text-align: center;
+}
+
+.coaching-section h2 {
+    color: var(--color-text-primary);
+    margin-bottom: 20px;
+    font-size: var(--font-size-title-secondary);
+}
+
+.coaching-section img {
+    min-width: 0px;
+    width: 100%;
+    height: auto;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.coaching-section p {
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Styles pour le prix du coaching */
+.coaching-item .coaching-price {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-button-background); 
+    font-size: 1.1em;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    cursor: default; 
+}
+
+.coaching-item .coaching-price:hover {
+    color: var(--color-button-hover); 
+    text-shadow: 0 0 5px rgba(41, 155, 232, 0.5); 
+}
+
+
+/* Section À Propos */
+.apropos-section {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: var(--color-background-primary);
+    border-radius: 8px;
+    text-align: center; 
+}
+
+.apropos-section .section-title {
+    font-size: 2.2em;
+    color: var(--color-text-primary);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-weight: var(--font-weight-bold);
+    font-style: normal; 
+}
+
+.apropos-block {
+    margin-bottom: 30px;
+    text-align: left; /
+}
+
+.apropos-block h3 {
+    color: var(--color-text-primary);
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    text-align: center; 
+}
+
+.apropos-block p {
+    color: var(--color-text-primary);
+    line-height: 1.7;
+    margin-bottom: 10px;
+    font-size: var(--font-size-text-main);
+}
+
+.apropos-block p strong {
+    color: var(--color-text-primary);
+}
+
+.price-callout-container {
+    margin: 40px auto;
+    text-align: center;
+}
+
+.price-callout {
+    display: inline-block;
+    background-color: var(--color-button-background); 
+    color: var(--color-text-nav-button); 
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.5em;
+    font-weight: var(--font-weight-bold);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.price-callout:hover {
+    background-color: var(--color-button-hover);
+    transform: translateY(-3px);
+}
+
+.coach-section {
+    margin-top: 50px;
+    text-align: center; 
+}
+
+.coach-photo {
+    width: 300px; 
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--color-accent-yellow); 
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-coach-btn {
+    padding: 15px 40px;
+    font-size: 1.1em;
+    border-radius: 25px;
+    
+}
+
+.coaching-photo { 
+    min-width: 0px;
+    border-radius: 50%;
+    max-width: 40%;
+    height: auto;
+    margin-top: 20px;
+    object-fit: cover;
+}
+
+/* Formulaires (Contact, Connexion, Inscription, Édition Profil) */
+.contact-form-section,
+.auth-container,
+.edit-profile-section {
+    max-width: 600px; 
+    background-color: var(--color-background-primary); 
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center; 
+}
+.auth-container .utilisateur-photo {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.contact-form-section h2 {
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center; 
+}
+.form-group .mail-photo {
+    position: absolute;
+    top: 35px;
+    left: 10px;
+    width: 34px; 
+    height: 34px; 
+}
+.form-group .verrou-photo {
+    position: absolute;
+    top: 35px;
+    left: 10px;
+    width: 34px; 
+    height: 34px; 
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+}
+.auth-container p a {
+    color: var(--color-button-background);
+    text-decoration: none;
+    font-weight: var(--font-weight-bold);
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: calc(100% - 20px); 
+    padding: 15px 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: var(--font-size-text-main);
+    box-sizing: border-box;
+    color: var(--color-text-primary);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Styles spécifiques aux inputs dans les conteneurs d'authentification */
+.auth-container input[type="email"],
+.auth-container input[type="password"],
+.auth-container input[type="text"] {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: var(--color-text-nav-button);
+    font-size: 1.1em;
+    outline: none;
+}
+
+.auth-container input[type="email"]:focus,
+.auth-container input[type="password"]:focus,
+.auth-container input[type="text"]:focus {
+    border-color: var(--color-button-background);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    font-size: 0.9em;
+}
+
+.form-options label {
+    display: flex;
+    align-items: center;
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text-primary);
+}
+
+.form-options input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+.forgot-password {
+    color: var(--color-button-background);
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Boutons spécifiques aux formulaires */
+.btn-login,
+.btn-register,
+.contact-form button[type="submit"],
+.edit-profile-form .btn {
+    display: inline-block;
+    padding: 10px 30px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: var(--font-size-button);
+    font-weight: var(--font-weight-regular);
+    background: var(--color-button-background);
+    color: var(--color-text-nav-button);
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: background-color;
+}
+
+.btn-login {
+    background: var(--color-button-background);
+    color: var(--color-text-nav-button);
+    margin-bottom: 15px;
+}
+
+.btn-login:hover {
+    background: var(--color-button-hover);
+}
+
+.btn-register {
+    background: #f0f0f0;
+    color: var(--color-text-nav-button);
+    border: 1px solid #ccc;
+    line-height: normal; 
+}
+
+.btn-register:hover {
+    background: #e0e0e0;
+}
+.cart-item img {
+  border-radius: 50px; 
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-text-primary);
+    color: var(--color-text-nav-button);
+    padding: 10px 20px;
+    font-size: var(--font-size-footer);
+    border-top: 5px solid #e0e7ff;
+}
+
+.footer-content {
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto 20px auto;
+    text-align: center;
+}
+.footer-block.footer-logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 50px;
+    background-color: var(--color-text-primary);
+    color: var(--color-background-primary);
+}
+
+.footer-logo {
+    height: 130px;
+    width: auto;
+}
+
+.tagline {
+    margin: 0;
+    font-size: 2.4em;
+    color: var(--color-accent-yellow);
+}
+.tagline {
+    margin-bottom: 10px;
+    font-size: 2.4em;
+    color: var(--color-accent-yellow);
+    text-wrap: balance;
+    margin-left: -30px;
+}
+
+.footer-social-section {
+    flex-basis: 10px;
+    min-width: 10px;
+    text-align: center;
+}
+
+.footer-social-section p {
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 10px;
+    margin-top: 0;
+    color: var(--color-text-nav-button);
+}
+
+.footer-social-section a {
+    display: inline-block;
+    margin: 0 5px;
+    color: var(--color-text-nav-button);
+}
+
+.footer-social-section img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.footer-social-section img:hover {
+    transform: scale(1.1);
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-button-background);
+    color: var(--color-text-nav-button);
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-size-button);
+    font-weight: var(--font-weight-regular);
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--color-button-hover);
+}
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0;
+    }
+    .footer-block {
+        min-width: 90%;
+        margin-bottom: 15px;
+    }
+
+/* Media Queries */
+@media (max-width: 768px) {
+
+
+    .header-main-line {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 20px;
+    }
+    .header-main-line nav ul {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+    .header-main-line nav ul li {
+        width: calc(50% - 10px);
+        text-align: center;
+    }
+    .header-main-line nav ul li a {
+        display: block;
+        padding: 5px 0;
+    }
+
+    .header-right {
+        align-items: center;
+    }
+    .header-main-title {
+        font-size: 2em;
+        white-space: normal;
+        margin-bottom: 10px;
+    }
+
+    main {
+        padding: 20px 10px;
+    }
+
+    .agenda-container,
+    .auth-container,
+    .coaching-section,
+    .apropos-content,
+    .contact-form-section {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .auth-container input {
+        width: calc(100% - 20px);
+    }
+
+    .form-options {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    footer {
+        padding: 20px 10px;
+    }
+    .footer-logo {
+        height: 80px;
+    }
+    .footer-block.footer-logo-section {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .tagline {
+        font-size: 1.5em;
+        white-space: normal;
+    }
+
+    #calendar-container {
+        width: 98%;
+        padding: 15px;
+    }
+    .fc .fc-toolbar-title {
+        font-size: 1.4em !important;
+    }
+    .fc .fc-button-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+    }
+}

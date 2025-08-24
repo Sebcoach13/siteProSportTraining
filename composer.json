@@ -1,0 +1,24 @@
+{
+    "name": "dacosta/site-pro-sport-training",
+    "authors": [
+        {
+            "name": "Sebcoach13",
+            "email": "140277344+Sebcoach13@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.8",
+        "stripe/stripe-php": "^10.0"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packagist.org",
+            "options": {
+                "ssl": {
+                    "verify_peer": false
+                }
+            }
+        }
+    ]
+}
