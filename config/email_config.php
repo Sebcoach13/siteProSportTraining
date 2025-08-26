@@ -3,16 +3,16 @@
 
 $email_config = [
     // Hôte SMTP pour Outlook/Hotmail
-    'host' => 'smtp.office365.com',
+    'host' => 'smtp.gmail.com',
 
     // L'authentification est nécessaire
     'smtp_auth' => true,
 
     // Ton adresse Hotmail/Outlook
-    'username' => 'seb-dac67@hotmail.fr',
+    'username' => 'dacostasebastien83@gmail.com',
 
     // Ton mot de passe de compte Hotmail/Outlook
-    'password' => 'linkinpark',
+    'password' => 'Llinkinpark1973@',
 
     // Le protocole de sécurité TLS est obligatoire
     'smtp_secure' => 'tls',
@@ -21,11 +21,11 @@ $email_config = [
     'port' => 587,
 
     // L'adresse qui apparaîtra comme l'expéditeur
-    'from_email' => 'seb-dac67@hotmail.fr',
+    'from_email' => 'dacostasebastien83@gmail.com',
 
     // Le nom qui apparaîtra comme l'expéditeur
     'from_name' => 'Pro Sport-Training',
 
     // L'adresse où le message de contact sera envoyé
-    'to_email' => 'seb-dac67@hotmail.fr',
+    'to_email' => 'dacostasebastien83@gmail.com',
 ];

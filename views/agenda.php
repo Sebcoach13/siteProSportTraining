@@ -33,7 +33,7 @@
                 list: 'Liste'
             },
             events: [
-                { title: 'Rendez-vous client', start: '22025-07-23', color: '#299BE8' },
+                { title: 'Rendez-vous client', start: '2025-07-23', color: '#299BE8' },
                 { title: 'Séance de coaching', start: '2025-07-30T14:00:00', end: '2025-07-30T15:30:00', color: '#4682B4' },
                 { title: 'Réunion d\'équipe', start: '2025-07-31T09:00:00', end: '2025-07-31T10:00:00', color: '#32CD32' },
                 { title: 'Jour férié', start: '2025-08-01', allDay: true, color: '#DDA0DD' }

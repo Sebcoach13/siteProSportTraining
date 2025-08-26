@@ -72,7 +72,7 @@ include_once __DIR__ . '/footer.php';
             cardErrors.style.display = 'none';
 
             try {
-                const response = await fetch(/index.php?page=paiement_process', {
+                const response = await fetch('/index.php?page=paiement_process', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
